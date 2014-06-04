@@ -1,4 +1,4 @@
-enum Language<T> {
+enum Language<T : Printable> {
 	typealias LazyLanguage = () -> Language<T>
 	
 	case Empty
