@@ -10,6 +10,7 @@
 		D4B9F75A193E73C400AC6B45 /* Hammer.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B9F759193E73C400AC6B45 /* Hammer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4B9F760193E73C400AC6B45 /* Hammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F754193E73C400AC6B45 /* Hammer.framework */; };
 		D4B9F767193E73C400AC6B45 /* HammerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F766193E73C400AC6B45 /* HammerTests.swift */; };
+		D4B9F771193E740900AC6B45 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F770193E740900AC6B45 /* Language.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,8 @@
 		D4B9F75F193E73C400AC6B45 /* HammerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HammerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B9F765193E73C400AC6B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B9F766193E73C400AC6B45 /* HammerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HammerTests.swift; sourceTree = "<group>"; };
+		D4B9F770193E740900AC6B45 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		D4B9F772193EA17200AC6B45 /* Hammer.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Hammer.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				D4B9F759193E73C400AC6B45 /* Hammer.h */,
+				D4B9F770193E740900AC6B45 /* Language.swift */,
 				D4B9F757193E73C400AC6B45 /* Supporting Files */,
 			);
 			path = Hammer;
@@ -88,6 +92,7 @@
 		D4B9F763193E73C400AC6B45 /* HammerTests */ = {
 			isa = PBXGroup;
 			children = (
+				D4B9F772193EA17200AC6B45 /* Hammer.playground */,
 				D4B9F766193E73C400AC6B45 /* HammerTests.swift */,
 				D4B9F764193E73C400AC6B45 /* Supporting Files */,
 			);
@@ -210,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B9F771193E740900AC6B45 /* Language.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +322,7 @@
 		D4B9F76B193E73C400AC6B45 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -327,12 +334,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D4B9F76C193E73C400AC6B45 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
