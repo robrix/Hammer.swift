@@ -15,6 +15,26 @@ enum Language<T : Printable> {
 	case Reduce(LazyLanguage, (T) -> Any)
 }
 
+extension Language : Printable {
+	var description: String {
+		switch self {
+		case .Empty: return "∅"
+		case let .Null(parses): return "ε↓{\(parses)}"
+		
+		case let .Literal(c): return "'\(c)'"
+		
+		case let .Alternation(left, right): return "\(left) ∪ \(right)"
+		case let .Concatenation(language, .Repeat(language)): "\(language)+"
+		case let .Concatenation(first, second): return "\(first) ✕ \(second)"
+		case let .Intersection(left, right): return "\(left) ∩ \(right)"
+		
+		case let .Repeat(language): return "\(language)*"
+		
+		case let .Reduce(language, _): return "\(language) → 𝑓"
+		}
+	}
+}
+
 
 @infix func | <T> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
 	return Language<T>.Alternation(left, right)
