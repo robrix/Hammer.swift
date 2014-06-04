@@ -2,7 +2,7 @@ enum Language<T> {
 	typealias LazyLanguage = () -> Language<T>
 	
 	case Empty
-	case Null(T)
+	case Null(T[])
 	
 	case Literal(T)
 	
