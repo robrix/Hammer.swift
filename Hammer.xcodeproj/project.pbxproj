@@ -11,6 +11,7 @@
 		D4B9F760193E73C400AC6B45 /* Hammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F754193E73C400AC6B45 /* Hammer.framework */; };
 		D4B9F767193E73C400AC6B45 /* HammerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F766193E73C400AC6B45 /* HammerTests.swift */; };
 		D4B9F771193E740900AC6B45 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F770193E740900AC6B45 /* Language.swift */; };
+		D4C231031955FB89001DE39D /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C231021955FB89001DE39D /* Delay.swift */; };
 		D4C231051956013E001DE39D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C231041956013E001DE39D /* Box.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		D4B9F766193E73C400AC6B45 /* HammerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HammerTests.swift; sourceTree = "<group>"; };
 		D4B9F770193E740900AC6B45 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		D4B9F772193EA17200AC6B45 /* Hammer.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Hammer.playground; sourceTree = "<group>"; };
+		D4C231021955FB89001DE39D /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		D4C231041956013E001DE39D /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				D4B9F759193E73C400AC6B45 /* Hammer.h */,
 				D4C231041956013E001DE39D /* Box.swift */,
 				D4B9F770193E740900AC6B45 /* Language.swift */,
+				D4C231021955FB89001DE39D /* Delay.swift */,
 				D4B9F757193E73C400AC6B45 /* Supporting Files */,
 			);
 			path = Hammer;
@@ -220,6 +223,7 @@
 			files = (
 				D4C231051956013E001DE39D /* Box.swift in Sources */,
 				D4B9F771193E740900AC6B45 /* Language.swift in Sources */,
+				D4C231031955FB89001DE39D /* Delay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				D4B9F76C193E73C400AC6B45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4B9F76D193E73C400AC6B45 /* Build configuration list for PBXNativeTarget "HammerTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				D4B9F76F193E73C400AC6B45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
