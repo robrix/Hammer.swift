@@ -4,8 +4,13 @@
 enum Language<T where T : Printable, T : Equatable> {
 	/// The empty language, i.e. the language which accepts nothing.
 	case Empty
+	
+	/// A null language, i.e. a language which accepts the empty string.
+	///
+	/// Its parameter is a parse forest of recognized input.
 	case Null(T[])
 	
+	/// A literal, i.e. matches the literal of type `T`.
 	case Literal(Box<T>)
 	
 	case Alternation(Delay<Language<T>>, Delay<Language<T>>)
