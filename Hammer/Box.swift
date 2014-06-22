@@ -22,6 +22,12 @@ func box<T>(value: T) -> Box<T> {
 	}
 }
 
+
+func == <Boxed : Equatable>(a: Box<Boxed>, b: Box<Boxed>) -> Bool {
+	return a.value == b.value
+}
+
+
 func hashValue<Boxed : Hashable>(box: Box<Boxed>) -> Int {
 	return box.value.hashValue
 }
