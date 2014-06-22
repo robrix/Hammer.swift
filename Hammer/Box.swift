@@ -21,3 +21,7 @@ func box<T>(value: T) -> Box<T> {
 		return value
 	}
 }
+
+func hashValue<Boxed : Hashable>(box: Box<Boxed>) -> Int {
+	return box.value.hashValue
+}
