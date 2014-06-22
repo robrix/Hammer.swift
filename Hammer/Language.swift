@@ -23,20 +23,6 @@ enum Language<Alphabet where Alphabet : Printable, Alphabet : Equatable> {
 }
 
 
-func == <T> (left: Language<T>, right: Language<T>) -> Bool {
-	switch (left, right) {
-		case (.Empty, .Empty): return true
-		case let (.Null(x), .Null(y)): return x == y
-		
-		case let (.Literal(x), .Literal(y)): return x == y
-		
-		default: return false
-	}
-}
-
-extension Language : Equatable {}
-
-
 @infix func | <T where T : Equatable, T : Printable> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
 	return Language.Alternation(delay(left), delay(right))
 }
