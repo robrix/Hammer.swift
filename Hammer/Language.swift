@@ -13,12 +13,24 @@ enum Language<Alphabet where Alphabet : Printable, Alphabet : Equatable> {
 	/// A literal, i.e. matches the literal of type `Alphabet`.
 	case Literal(Box<Alphabet>)
 	
+	
+	/// The alternation, or union, of two languages.
+	///
+	/// Note that if these languages can both recognize the same string, then alternation of the two is ambiguous, and can result in exponential space consumption while parsing.
 	case Alternation(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
+	
+	/// The concatenation of two languages.
 	case Concatenation(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
+	
+	/// The intersection of two languages.
 	case Intersection(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
 	
+	
+	/// The repetition of a language 0 or more times.
 	case Repeat(Delay<Language<Alphabet>>)
 	
+	
+	/// The reduction of a language by a function.
 	case Reduce(Delay<Language<Alphabet>>, (Alphabet) -> Any)
 }
 
