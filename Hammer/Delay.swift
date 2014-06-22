@@ -6,7 +6,7 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 }
 
 /// A lazily-provided value, convertible to its underlying type.
-@final class Delay<T : Equatable> {
+@final class Delay<T> {
 	var _thunk: (() -> T)?
 	var _value: Box<T?>
 	
@@ -28,7 +28,7 @@ func == <T : Equatable> (left: Delay<T>, right: Delay<T>) -> Bool {
 	return ((left as T) == (right as T))
 }
 
-extension Delay : Equatable {}
+
 
 func hashValue<Delayed : Hashable>(delay: Delay<Delayed>) -> Int {
 	return (delay as Delayed).hashValue
