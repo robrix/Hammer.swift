@@ -29,3 +29,7 @@ func == <T : Equatable> (left: Delay<T>, right: Delay<T>) -> Bool {
 }
 
 extension Delay : Equatable {}
+
+func hashValue<Delayed : Hashable>(delay: Delay<Delayed>) -> Int {
+	return (delay as Delayed).hashValue
+}
