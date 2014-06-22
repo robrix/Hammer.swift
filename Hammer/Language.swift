@@ -34,11 +34,18 @@ extension Language : Printable {
 		case let .Concatenation(language, .Repeat(language)): "\(language)+"
 		case let .Concatenation(first, second): return "\(first) ✕ \(second)"
 		case let .Intersection(left, right): return "\(left) ∩ \(right)"
-		
-		case let .Repeat(language): return "\(language)*"
-		
-		case let .Reduce(language, _): return "\(language) → 𝑓"
 		}
+	}
+}
+
+func == <T> (left: Language<T>, right: Language<T>) -> Bool {
+	switch (left, right) {
+		case (.Empty, .Empty): return true
+		case let (.Null(x), .Null(y)): return x == y
+		
+		case let (.Literal(x), .Literal(y)): return x == y
+		
+		default: return false
 	}
 }
 
