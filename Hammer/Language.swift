@@ -22,8 +22,8 @@ enum Language<Alphabet where Alphabet : Printable, Alphabet : Equatable, Alphabe
 	/// The concatenation of two languages.
 	case Concatenation(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
 	
-	/// The intersection of two languages.
-	case Intersection(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
+//	/// The intersection of two languages.
+//	case Intersection(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
 	
 	
 	/// The repetition of a language 0 or more times.

@@ -16,9 +16,9 @@ operator infix ++ {}
 
 
 /// Constructs the intersection of \c left and \c right.
-@infix func & <T> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Intersection(delay(left), delay(right))
-}
+//@infix func & <T> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
+//	return Language.Intersection(delay(left), delay(right))
+//}
 
 
 /// The Kleene star, or zero-or-more repetition operator.
