@@ -6,13 +6,13 @@ enum Language<T : Printable> {
 	
 	case Literal(T)
 	
-	case Alternation(LazyLanguage, LazyLanguage)
-	case Concatenation(LazyLanguage, LazyLanguage)
-	case Intersection(LazyLanguage, LazyLanguage)
+	case Alternation(Delay<Language<T>>, Delay<Language<T>>)
+	case Concatenation(Delay<Language<T>>, Delay<Language<T>>)
+	case Intersection(Delay<Language<T>>, Delay<Language<T>>)
 	
-	case Repeat(LazyLanguage)
+	case Repeat(Delay<Language<T>>)
 	
-	case Reduce(LazyLanguage, (T) -> Any)
+	case Reduce(Delay<Language<T>>, (T) -> Any)
 }
 
 extension Language : Printable {
@@ -36,25 +36,25 @@ extension Language : Printable {
 }
 
 
-@infix func | <T> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language<T>.Alternation(left, right)
+@infix func | <T where T : Equatable, T : Printable> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
+	return Language.Alternation(delay(left), delay(right))
 }
 
 
 operator infix ++ {}
 
 @infix func ++ <T> (first: @auto_closure () -> Language<T>, second: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language<T>.Concatenation(first, second)
+	return Language.Concatenation(delay(first), delay(second))
 }
 
 @infix func & <T> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language<T>.Intersection(left, right)
+	return Language.Intersection(delay(left), delay(right))
 }
 
 operator postfix * {}
 
 @postfix func * <T> (language: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language<T>.Repeat(language)
+	return Language.Repeat(delay(language))
 }
 
 
@@ -68,5 +68,5 @@ operator postfix + {}
 operator infix --> {}
 
 @infix func --> <T> (language: @auto_closure () -> Language<T>, f: (T) -> Any) -> Language<T> {
-	return Language<T>.Reduce(language, f)
+	return Language.Reduce(delay(language), f)
 }
