@@ -1,25 +1,25 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-/// The definition of a context-free language whose individual elements are of type `T`.
-enum Language<T where T : Printable, T : Equatable> {
+/// The definition of a context-free language whose individual elements are of type `Alphabet`.
+enum Language<Alphabet where Alphabet : Printable, Alphabet : Equatable> {
 	/// The empty language, i.e. the language which accepts nothing.
 	case Empty
 	
 	/// A null language, i.e. a language which accepts the empty string.
 	///
 	/// Its parameter is a parse forest of recognized input.
-	case Null(T[])
+	case Null(Alphabet[])
 	
-	/// A literal, i.e. matches the literal of type `T`.
-	case Literal(Box<T>)
+	/// A literal, i.e. matches the literal of type `Alphabet`.
+	case Literal(Box<Alphabet>)
 	
-	case Alternation(Delay<Language<T>>, Delay<Language<T>>)
-	case Concatenation(Delay<Language<T>>, Delay<Language<T>>)
-	case Intersection(Delay<Language<T>>, Delay<Language<T>>)
+	case Alternation(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
+	case Concatenation(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
+	case Intersection(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
 	
-	case Repeat(Delay<Language<T>>)
+	case Repeat(Delay<Language<Alphabet>>)
 	
-	case Reduce(Delay<Language<T>>, (T) -> Any)
+	case Reduce(Delay<Language<Alphabet>>, (Alphabet) -> Any)
 }
 
 extension Language : Printable {
