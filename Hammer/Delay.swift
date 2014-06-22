@@ -1,9 +1,11 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-func delay<T>(thunk: @auto_closure () -> T) -> Delay<T> {
-	return Delay(thunk: thunk)
+/// Takes an unevaluated closure \c value and returns a lazily-evaluating wrapper for it.
+func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
+	return Delay(thunk: value)
 }
 
+/// A lazily-provided value, convertible to its underlying type.
 @final class Delay<T : Equatable> {
 	var _thunk: (() -> T)?
 	var _value: Box<T?>
