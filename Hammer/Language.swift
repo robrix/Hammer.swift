@@ -6,7 +6,7 @@ enum Language<T where T : Printable, T : Equatable> {
 	case Empty
 	case Null(T[])
 	
-	case Literal(T)
+	case Literal(Box<T>)
 	
 	case Alternation(Delay<Language<T>>, Delay<Language<T>>)
 	case Concatenation(Delay<Language<T>>, Delay<Language<T>>)
