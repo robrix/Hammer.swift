@@ -35,6 +35,8 @@ extension Language : Printable {
 	}
 }
 
+extension Language : Equatable {}
+
 
 @infix func | <T where T : Equatable, T : Printable> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
 	return Language.Alternation(delay(left), delay(right))
