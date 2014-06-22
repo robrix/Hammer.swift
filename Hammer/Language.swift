@@ -1,6 +1,8 @@
-enum Language<T : Printable> {
-	typealias LazyLanguage = () -> Language<T>
-	
+//  Copyright (c) 2014 Rob Rix. All rights reserved.
+
+/// The definition of a context-free language whose individual elements are of type `T`.
+enum Language<T where T : Printable, T : Equatable> {
+	/// The empty language, i.e. the language which accepts nothing.
 	case Empty
 	case Null(T[])
 	
