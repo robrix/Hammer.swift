@@ -33,39 +33,3 @@ enum Language<Alphabet where Alphabet : Printable, Alphabet : Equatable> {
 	/// The reduction of a language by a function.
 	case Reduce(Delay<Language<Alphabet>>, (Alphabet) -> Any)
 }
-
-
-@infix func | <T where T : Equatable, T : Printable> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Alternation(delay(left), delay(right))
-}
-
-
-operator infix ++ {}
-
-@infix func ++ <T> (first: @auto_closure () -> Language<T>, second: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Concatenation(delay(first), delay(second))
-}
-
-@infix func & <T> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Intersection(delay(left), delay(right))
-}
-
-operator postfix * {}
-
-@postfix func * <T> (language: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Repeat(delay(language))
-}
-
-
-operator postfix + {}
-
-@postfix func + <T> (language: @auto_closure () -> Language<T>) -> Language<T> {
-	return language ++ language*
-}
-
-
-operator infix --> {}
-
-@infix func --> <T> (language: @auto_closure () -> Language<T>, f: (T) -> Any) -> Language<T> {
-	return Language.Reduce(delay(language), f)
-}

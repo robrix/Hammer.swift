@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D439CF9319572912005BD842 /* Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9219572912005BD842 /* Printing.swift */; };
 		D439CF9519572988005BD842 /* Equating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9419572988005BD842 /* Equating.swift */; };
+		D439CF9719572ABC005BD842 /* Constructing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9619572ABC005BD842 /* Constructing.swift */; };
 		D4B9F75A193E73C400AC6B45 /* Hammer.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B9F759193E73C400AC6B45 /* Hammer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4B9F760193E73C400AC6B45 /* Hammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F754193E73C400AC6B45 /* Hammer.framework */; };
 		D4B9F767193E73C400AC6B45 /* HammerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F766193E73C400AC6B45 /* HammerTests.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		D439CF9219572912005BD842 /* Printing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printing.swift; sourceTree = "<group>"; };
 		D439CF9419572988005BD842 /* Equating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equating.swift; sourceTree = "<group>"; };
+		D439CF9619572ABC005BD842 /* Constructing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constructing.swift; sourceTree = "<group>"; };
 		D4B9F754193E73C400AC6B45 /* Hammer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hammer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B9F758193E73C400AC6B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B9F759193E73C400AC6B45 /* Hammer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hammer.h; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				D439CF9219572912005BD842 /* Printing.swift */,
 				D439CF9419572988005BD842 /* Equating.swift */,
+				D439CF9619572ABC005BD842 /* Constructing.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				D4C231051956013E001DE39D /* Box.swift in Sources */,
 				D4B9F771193E740900AC6B45 /* Language.swift in Sources */,
 				D439CF9519572988005BD842 /* Equating.swift in Sources */,
+				D439CF9719572ABC005BD842 /* Constructing.swift in Sources */,
 				D4C231031955FB89001DE39D /* Delay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
