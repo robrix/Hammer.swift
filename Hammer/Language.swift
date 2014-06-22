@@ -27,9 +27,9 @@ enum Language<Alphabet where Alphabet : Printable, Alphabet : Equatable, Alphabe
 	
 	
 	/// The repetition of a language 0 or more times.
-	case Repeat(Delay<Language<Alphabet>>)
+	case Repetition(Delay<Language<Alphabet>>)
 	
 	
 	/// The reduction of a language by a function.
-	case Reduce(Delay<Language<Alphabet>>, (Alphabet) -> Any)
+	case Reduction(Delay<Language<Alphabet>>, (Alphabet) -> Any)
 }

@@ -29,7 +29,7 @@ operator postfix * {}
 /// \code
 ///     language*
 @postfix func * <T> (language: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Repeat(delay(language))
+	return Language.Repetition(delay(language))
 }
 
 
@@ -55,5 +55,5 @@ operator infix --> {}
 /// \code
 ///     language --> { $0 }
 @infix func --> <T> (language: @auto_closure () -> Language<T>, f: (T) -> Any) -> Language<T> {
-	return Language.Reduce(delay(language), f)
+	return Language.Reduction(delay(language), f)
 }

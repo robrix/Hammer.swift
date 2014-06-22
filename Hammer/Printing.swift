@@ -29,11 +29,11 @@ extension Language : Printable {
 			return "\(left) ∩ \(right)"
 			
 			
-		case let .Repeat(language):
+		case let .Repetition(language):
 			return "\(language)*"
 			
 			
-		case let .Reduce(language, _):
+		case let .Reduction(language, _):
 			return "\(language) → 𝑓"
 		}
 	}
