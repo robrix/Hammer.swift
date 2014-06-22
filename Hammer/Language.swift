@@ -22,25 +22,6 @@ enum Language<Alphabet where Alphabet : Printable, Alphabet : Equatable> {
 	case Reduce(Delay<Language<Alphabet>>, (Alphabet) -> Any)
 }
 
-extension Language : Printable {
-	var description: String {
-		switch self {
-			case .Empty: return "∅"
-			case let .Null(parses): return "ε↓{\(parses)}"
-			
-			case let .Literal(c): return "'\(c)'"
-			
-			case let .Alternation(left, right): return "\(left) ∪ \(right)"
-	//		case let .Concatenation(language, .Repeat(language)): "\(language)+"
-			case let .Concatenation(first, second): return "\(first) ✕ \(second)"
-			case let .Intersection(left, right): return "\(left) ∩ \(right)"
-			
-			case let .Repeat(language): return "\(language)*"
-			
-			case let .Reduce(language, _): return "\(language) → 𝑓"
-		}
-	}
-}
 
 func == <T> (left: Language<T>, right: Language<T>) -> Bool {
 	switch (left, right) {
