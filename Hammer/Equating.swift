@@ -10,5 +10,3 @@ func == <T> (left: Language<T>, right: Language<T>) -> Bool {
 	default: return false
 	}
 }
-
-extension Language : Equatable {}
