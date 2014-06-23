@@ -1,7 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// The definition of a context-free language whose individual elements are of type `Alphabet`.
-enum Language<Alphabet where Alphabet : Printable, Alphabet : Equatable, Alphabet : Hashable> {
+enum Language<Alphabet where Alphabet : Printable, Alphabet : Hashable> {
 	/// The empty language, i.e. the language which accepts nothing.
 	case Empty
 	
