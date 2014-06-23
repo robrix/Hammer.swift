@@ -25,8 +25,8 @@ extension Language : Printable {
 		case let .Concatenation(first, second):
 			return "\(first) ✕ \(second)"
 			
-		case let .Intersection(left, right):
-			return "\(left) ∩ \(right)"
+//		case let .Intersection(left, right):
+//			return "\(left) ∩ \(right)"
 			
 			
 		case let .Repetition(language):
