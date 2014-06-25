@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4008310195A5E0E00E7D603 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D400830F195A5E0E00E7D603 /* Test.swift */; };
 		D439CF9319572912005BD842 /* Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9219572912005BD842 /* Printing.swift */; };
 		D439CF9519572988005BD842 /* Equating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9419572988005BD842 /* Equating.swift */; };
 		D439CF9719572ABC005BD842 /* Constructing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9619572ABC005BD842 /* Constructing.swift */; };
@@ -30,9 +31,24 @@
 			remoteGlobalIDString = D4B9F753193E73C400AC6B45;
 			remoteInfo = Hammer;
 		};
+		D4FF845919585B6B008BF16D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4B9F74B193E73C300AC6B45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4B9F753193E73C400AC6B45;
+			remoteInfo = Hammer;
+		};
+		D4FF845B19585C21008BF16D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4B9F74B193E73C300AC6B45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4B9F753193E73C400AC6B45;
+			remoteInfo = Hammer;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D400830F195A5E0E00E7D603 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		D439CF9219572912005BD842 /* Printing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printing.swift; sourceTree = "<group>"; };
 		D439CF9419572988005BD842 /* Equating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equating.swift; sourceTree = "<group>"; };
 		D439CF9619572ABC005BD842 /* Constructing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constructing.swift; sourceTree = "<group>"; };
@@ -119,6 +135,7 @@
 				D4C231021955FB89001DE39D /* Delay.swift */,
 				D439CFC419578250005BD842 /* Fixpoint.swift */,
 				D439CF9A19574A43005BD842 /* Set.swift */,
+				D400830F195A5E0E00E7D603 /* Test.swift */,
 				D4B9F758193E73C400AC6B45 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -186,6 +203,8 @@
 			);
 			dependencies = (
 				D4B9F762193E73C400AC6B45 /* PBXTargetDependency */,
+				D4FF845A19585B6B008BF16D /* PBXTargetDependency */,
+				D4FF845C19585C21008BF16D /* PBXTargetDependency */,
 			);
 			name = HammerTests;
 			productName = HammerTests;
@@ -255,6 +274,7 @@
 				D4C231051956013E001DE39D /* Box.swift in Sources */,
 				D439CFC7195786DD005BD842 /* Hashing.swift in Sources */,
 				D439CFC519578250005BD842 /* Fixpoint.swift in Sources */,
+				D4008310195A5E0E00E7D603 /* Test.swift in Sources */,
 				D4B9F771193E740900AC6B45 /* Language.swift in Sources */,
 				D439CF9B19574A43005BD842 /* Set.swift in Sources */,
 				D439CF9519572988005BD842 /* Equating.swift in Sources */,
@@ -278,6 +298,16 @@
 			isa = PBXTargetDependency;
 			target = D4B9F753193E73C400AC6B45 /* Hammer */;
 			targetProxy = D4B9F761193E73C400AC6B45 /* PBXContainerItemProxy */;
+		};
+		D4FF845A19585B6B008BF16D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4B9F753193E73C400AC6B45 /* Hammer */;
+			targetProxy = D4FF845919585B6B008BF16D /* PBXContainerItemProxy */;
+		};
+		D4FF845C19585C21008BF16D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4B9F753193E73C400AC6B45 /* Hammer */;
+			targetProxy = D4FF845B19585C21008BF16D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -404,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -413,7 +444,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = HammerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(DEVELOPER_DIR)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -423,12 +454,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = HammerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(DEVELOPER_DIR)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
