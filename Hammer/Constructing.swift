@@ -7,7 +7,7 @@
 
 
 /// The concatenation operator.
-operator infix ++ {}
+operator infix ++ { associativity right }
 
 /// Constructs the concatenation of \c first and \c second.
 @infix func ++ <T> (first: @auto_closure () -> Language<T>, second: @auto_closure () -> Language<T>) -> Language<T> {
