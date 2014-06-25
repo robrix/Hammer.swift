@@ -1,9 +1,11 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// Traverse a recursive language.
-func reduce<Into, Alphabet>(language: Language<Alphabet>, initial: Into, combine: (Into, Language<Alphabet>) -> Into) -> Into {
-	var memo = Dictionary<Language<Alphabet>, Into>()
-	return _reduce(memo, language, initial, combine)
+extension Language : Testable {
+	func reduce<Into>(initial: Into, combine: (Into, Language<Alphabet>) -> Into) -> Into {
+		var memo = Dictionary<Language<Alphabet>, Into>()
+		return _reduce(memo, self, initial, combine)
+	}
 }
 
 func _reduce<Into, Alphabet>(var memo: Dictionary<Language<Alphabet>, Into>, language: Language<Alphabet>, initial: Into, combine: (Into, Language<Alphabet>) -> Into) -> Into {
