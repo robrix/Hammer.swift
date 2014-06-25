@@ -6,6 +6,25 @@ extension Language : Testable {
 		var memo = Dictionary<Language<Alphabet>, Into>()
 		return _reduce(memo, self, initial, combine)
 	}
+	
+	static func performTests() {
+		func count(language: Language<String>) -> Int {
+			return language.reduce(0) { into, each in into + 1 }
+		}
+		
+		let empty: Language<String> = Language<String>.Empty
+		assert(count(empty) == 1)
+		
+		let repetition = empty*
+		assert(count(repetition) == 2)
+		
+		let concatenation = empty+
+		assert(count(concatenation) == 4)
+		
+		var cyclic: Language<String> = empty
+		cyclic = empty ++ cyclic ++ empty | empty
+		assert(count(cyclic) == 7)
+	}
 }
 
 func _reduce<Into, Alphabet>(var memo: Dictionary<Language<Alphabet>, Into>, language: Language<Alphabet>, initial: Into, combine: (Into, Language<Alphabet>) -> Into) -> Into {
@@ -40,4 +59,9 @@ func _reduce<Into, Alphabet>(var memo: Dictionary<Language<Alphabet>, Into>, lan
 	}
 	
 	return into
+}
+
+
+extension String : Printable {
+	var description: String { return self }
 }

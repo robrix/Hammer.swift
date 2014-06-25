@@ -1,5 +1,8 @@
 import XCTest
+import Hammer
 
-class ಠ_ಠ: XCTestCase {
-	
+class Tests: XCTestCase {
+	func testCases() {
+		Language<String>.performTests()
+	}
 }
