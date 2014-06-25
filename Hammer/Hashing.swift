@@ -3,10 +3,14 @@
 /// Hashable conformance.
 extension Language : Hashable {
 	var hashValue: Int {
-		switch self {
+		return computeHash(self)
+	}
+	
+	var computeHash: Language<Alphabet> -> Int = fixpoint(0) { (recur: Language<Alphabet> -> Int, language: Language<Alphabet>) -> Int in
+		switch language {
 		case .Empty:
 			return 0
-			
+		
 		case let .Null(parses):
 			return parses.reduce(parses.count) { hash, each in hash ^ each.hashValue }
 			
@@ -16,31 +20,17 @@ extension Language : Hashable {
 			
 			
 		case let .Alternation(left, right):
-			return "Alternation".hashValue ^ Hammer.hashValue(left) ^ Hammer.hashValue(right)
-			
-		case let .Concatenation(first, second):
-			return "Concatenation".hashValue ^ Hammer.hashValue(first) ^ Hammer.hashValue(second)
+			return "Alternation".hashValue ^ recur(left) ^ recur(right)
 		
-			
+		case let .Concatenation(first, second):
+			return "Concatenation".hashValue ^ recur(first) ^ recur(second)
+		
 		case let .Repetition(language):
-			return "Repetition".hashValue ^ Hammer.hashValue(language)
+			return "Repetition".hashValue ^ recur(language)
 			
 			
 		case let .Reduction(language, _):
-			return "Reduction".hashValue ^ Hammer.hashValue(language)
+			return "Reduction".hashValue ^ recur(language)
 		}
 	}
 }
-
-
-//let hashValue = fixpoint(0) { hashValue, language in
-//	switch language {
-//	case .Empty:
-//		return 0
-//	case let .Null(parses):
-//		return parses.reduce(parses.count) { hash, each in hash ^ each.hashValue }
-//	
-//	default:
-//		return 0
-//	}
-//}
