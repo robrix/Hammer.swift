@@ -13,6 +13,7 @@
 		D439CF9B19574A43005BD842 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9A19574A43005BD842 /* Set.swift */; };
 		D439CFC519578250005BD842 /* Fixpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CFC419578250005BD842 /* Fixpoint.swift */; };
 		D439CFC7195786DD005BD842 /* Hashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CFC6195786DD005BD842 /* Hashing.swift */; };
+		D439CFCB1957BC0D005BD842 /* Reduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CFCA1957BC0D005BD842 /* Reduce.swift */; };
 		D4B9F75A193E73C400AC6B45 /* Hammer.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B9F759193E73C400AC6B45 /* Hammer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4B9F760193E73C400AC6B45 /* Hammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F754193E73C400AC6B45 /* Hammer.framework */; };
 		D4B9F767193E73C400AC6B45 /* HammerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9F766193E73C400AC6B45 /* HammerTests.swift */; };
@@ -38,6 +39,7 @@
 		D439CF9A19574A43005BD842 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		D439CFC419578250005BD842 /* Fixpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixpoint.swift; sourceTree = "<group>"; };
 		D439CFC6195786DD005BD842 /* Hashing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashing.swift; sourceTree = "<group>"; };
+		D439CFCA1957BC0D005BD842 /* Reduce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reduce.swift; sourceTree = "<group>"; };
 		D4B9F754193E73C400AC6B45 /* Hammer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hammer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B9F758193E73C400AC6B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B9F759193E73C400AC6B45 /* Hammer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hammer.h; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				D439CF9419572988005BD842 /* Equating.swift */,
 				D439CF9619572ABC005BD842 /* Constructing.swift */,
 				D439CFC6195786DD005BD842 /* Hashing.swift */,
+				D439CFCA1957BC0D005BD842 /* Reduce.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D439CFCB1957BC0D005BD842 /* Reduce.swift in Sources */,
 				D439CF9319572912005BD842 /* Printing.swift in Sources */,
 				D4C231051956013E001DE39D /* Box.swift in Sources */,
 				D439CFC7195786DD005BD842 /* Hashing.swift in Sources */,
