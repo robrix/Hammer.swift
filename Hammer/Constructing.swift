@@ -1,8 +1,8 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// Constructs the alternation of \c left and \c right.
-@infix func | <T where T : Equatable, T : Printable> (left: @auto_closure () -> Language<T>, right: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Alternation(delay(left), delay(right))
+@infix func | <T where T : Equatable, T : Printable> (left: @auto_closure () -> Language<T, Combinator<T>>, right: @auto_closure () -> Language<T, Combinator<T>>) -> Language<T, Combinator<T>> {
+	return Language.Alternation(delay(Combinator(language: left())), delay(Combinator(language: right())))
 }
 
 
@@ -10,8 +10,8 @@
 operator infix ++ { associativity right }
 
 /// Constructs the concatenation of \c first and \c second.
-@infix func ++ <T> (first: @auto_closure () -> Language<T>, second: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Concatenation(delay(first), delay(second))
+@infix func ++ <T> (first: @auto_closure () -> Language<T, Combinator<T>>, second: @auto_closure () -> Language<T, Combinator<T>>) -> Language<T, Combinator<T>> {
+	return Language.Concatenation(delay(Combinator(language: first())), delay(Combinator(language: second())))
 }
 
 
@@ -28,8 +28,8 @@ operator postfix * {}
 ///
 /// \code
 ///     language*
-@postfix func * <T> (language: @auto_closure () -> Language<T>) -> Language<T> {
-	return Language.Repetition(delay(language))
+@postfix func * <T> (language: @auto_closure () -> Language<T, Combinator<T>>) -> Language<T, Combinator<T>> {
+	return Language.Repetition(delay(Combinator(language: language())))
 }
 
 
@@ -42,7 +42,7 @@ operator postfix + {}
 ///
 /// \code
 ///     language+
-@postfix func + <T> (language: @auto_closure () -> Language<T>) -> Language<T> {
+@postfix func + <T> (language: @auto_closure () -> Language<T, Combinator<T>>) -> Language<T, Combinator<T>> {
 	return language ++ language*
 }
 
@@ -54,6 +54,6 @@ operator infix --> {}
 /// 
 /// \code
 ///     language --> { $0 }
-@infix func --> <T> (language: @auto_closure () -> Language<T>, f: (T) -> Any) -> Language<T> {
-	return Language.Reduction(delay(language), f)
+@infix func --> <T> (language: @auto_closure () -> Language<T, Combinator<T>>, f: (T) -> Any) -> Language<T, Combinator<T>> {
+	return Language.Reduction(delay(Combinator(language: language())), f)
 }

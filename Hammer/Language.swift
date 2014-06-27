@@ -1,7 +1,9 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// The definition of a context-free language whose individual elements are of type `Alphabet`.
-enum Language<Alphabet where Alphabet : Printable, Alphabet : Hashable> {
+///
+/// `Recur` is the type through which recursion is handled, allowing languages to have state associated with them, but without requiring them to include it in each of their definitions. For context-free languages, `Recur` can be expected to have a `language` property with the appropriate types for `Recur` and `Alphabet`.
+enum Language<Alphabet : protocol<Printable, Hashable>, Recur> {
 	/// The empty language, i.e. the language which accepts nothing.
 	case Empty
 	
@@ -17,19 +19,18 @@ enum Language<Alphabet where Alphabet : Printable, Alphabet : Hashable> {
 	/// The alternation, or union, of two languages.
 	///
 	/// Note that if these languages can both recognize the same string, then alternation of the two is ambiguous, and can result in exponential space consumption while parsing.
-	case Alternation(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
+	case Alternation(Delay<Recur>, Delay<Recur>)
 	
 	/// The concatenation of two languages.
-	case Concatenation(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
-	
-//	/// The intersection of two languages.
-//	case Intersection(Delay<Language<Alphabet>>, Delay<Language<Alphabet>>)
-	
+	case Concatenation(Delay<Recur>, Delay<Recur>)
 	
 	/// The repetition of a language 0 or more times.
-	case Repetition(Delay<Language<Alphabet>>)
+	case Repetition(Delay<Recur>)
 	
 	
 	/// The reduction of a language by a function.
-	case Reduction(Delay<Language<Alphabet>>, (Alphabet) -> Any)
+	case Reduction(Delay<Recur>, (Alphabet) -> Any)
+	
+	// fixme: file a radar for implicit properties of enumerations (i.e. an element of each case but not explicitly enumerated there). This would be ideal as we would be able to use a single type to parse instead of the combination of Combinator and Language.
+}
 }
