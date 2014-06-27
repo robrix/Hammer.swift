@@ -5,7 +5,7 @@
 	typealias Recur = Combinator<Alphabet>
 	let language: Language<Alphabet, Recur>
 	
-	init(language: Language<Alphabet, Recur>) {
+	init(_ language: Language<Alphabet, Recur>) {
 		self.language = language
 	}
 }
@@ -40,7 +40,7 @@ extension Combinator {
 			return count
 		}
 		
-		let empty = Combinator<String>(language: Language.Empty)
+		let empty = Combinator<String>(Language.Empty)
 		assert(count(empty) == 1)
 		
 		let repetition = empty*
