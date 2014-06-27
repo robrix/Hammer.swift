@@ -15,7 +15,33 @@ func fixpoint<Parameter : Hashable, Result> (initial: Result, body: (Parameter -
 }
 
 
+
+/// Distributes hashing and equality over its members.
+struct HashablePair<T : Hashable> {
+	let left: T
+	let right: T
+	
+	init(_ a: T, _ b: T) {
+		left = a
+		right = b
+	}
+}
+
+
 /// Return an ObjectIdentifier for \c a if possible. Will be \c None for non-class instances, and \c Some for class instances.
 func identify<T>(a: T) -> ObjectIdentifier? {
 	return reflect(a).objectIdentifier
+}
+
+
+/// Distribute equality over hashable pairs.
+func == <T> (a: HashablePair<T>, b: HashablePair<T>) -> Bool {
+	return identify(a.left)! == identify(b.left)! && identify(a.right)! == identify(b.right)!
+}
+
+extension HashablePair : Hashable {
+	// This is a poor way to distribute hashing over a pair; it’s convenient, but it’s not a good implementation detail to rely upon or emulate.
+	var hashValue: Int {
+		return identify(left)!.hashValue ^ identify(right)!.hashValue
+	}
 }
