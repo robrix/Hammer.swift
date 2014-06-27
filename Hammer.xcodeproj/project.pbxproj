@@ -92,10 +92,10 @@
 		D439CF91195728F7005BD842 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				D439CF9219572912005BD842 /* Printable.swift */,
 				D439CF9619572ABC005BD842 /* Constructing.swift */,
 				D4575577195E122A001384D9 /* Equatable.swift */,
 				D4575579195E1269001384D9 /* Hashable.swift */,
+				D439CF9219572912005BD842 /* Printable.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
