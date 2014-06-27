@@ -8,7 +8,7 @@ extension Combinator : Hashable {
 	}
 }
 
-func hash<Alphabet : protocol<Hashable, Printable>>(combinator: Combinator<Alphabet>) -> Int {
+func hash<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> Int {
 	let hash: Combinator<Alphabet> -> Int = fixpoint(0) { recur, combinator in
 		switch combinator.language {
 		case .Empty:

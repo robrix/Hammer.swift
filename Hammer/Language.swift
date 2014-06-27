@@ -3,7 +3,7 @@
 /// The definition of a context-free language whose individual elements are of type `Alphabet`.
 ///
 /// `Recur` is the type through which recursion is handled, allowing languages to have state associated with them, but without requiring them to include it in each of their definitions. For context-free languages, `Recur` can be expected to have a `language` property with the appropriate types for `Recur` and `Alphabet`.
-enum Language<Alphabet : protocol<Printable, Hashable>, Recur> {
+enum Language<Alphabet : Alphabet, Recur> {
 	/// The empty language, i.e. the language which accepts nothing.
 	case Empty
 	

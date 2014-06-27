@@ -4,7 +4,7 @@
 // cf rdar://17489254
 
 /// Equality between two combinators.
-func == <Alphabet : protocol<Printable, Hashable>> (left: Combinator<Alphabet>, right: Combinator<Alphabet>) -> Bool {
+func == <Alphabet : Alphabet> (left: Combinator<Alphabet>, right: Combinator<Alphabet>) -> Bool {
 	// fixme: file a radar about the lack of type parameters for anonymous closures, variables, & constants
 	let equal: (Combinator<Alphabet>, Combinator<Alphabet>) -> Bool = fixpoint(true) { recur, a, b in
 		switch (a.language, b.language) {
