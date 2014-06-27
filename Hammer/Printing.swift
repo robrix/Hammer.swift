@@ -27,8 +27,8 @@ func describe<Alphabet : protocol<Hashable, Printable>>(combinator: Combinator<A
 		case let .Alternation(left, right):
 			return "(\(recur(left)) ∪ \(recur(right)))"
 			
-//		case let .Concatenation(first, .Repeat(second)) where first == second:
-//			return "\(recur(first))+"
+		case let .Concatenation(first, second) where first == second:
+			return "\(recur(first))+"
 			
 		case let .Concatenation(first, second):
 			return "(\(recur(first)) ✕ \(recur(second)))"
