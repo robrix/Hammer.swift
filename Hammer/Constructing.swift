@@ -48,6 +48,6 @@ operator infix --> {}
 /// 
 /// \code
 ///     language --> { $0 }
-@infix func --> <T> (language: @auto_closure () -> Language<T, Combinator<T>>, f: (T) -> Any) -> Language<T, Combinator<T>> {
-	return Language.Reduction(delay(Combinator(language: language())), f)
+@infix func --> <Alphabet : Alphabet> (language: @auto_closure () -> Combinator<Alphabet>, f: Alphabet -> Any) -> Combinator<Alphabet> {
+	return Combinator(language: Language.Reduction(Delay(language), f))
 }
