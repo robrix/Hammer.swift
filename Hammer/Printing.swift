@@ -10,7 +10,7 @@ extension Combinator : Printable {
 
 /// Pretty-prints the language represented by a combinator.
 func describe<Alphabet : protocol<Hashable, Printable>>(combinator: Combinator<Alphabet>) -> String {
-	let describe: Combinator<Alphabet> -> String = fixpoint("") { recur, combinator in
+	let describe: Combinator<Alphabet> -> String = fixpoint("S") { recur, combinator in
 		switch combinator.language {
 		case .Empty:
 			return "∅"
