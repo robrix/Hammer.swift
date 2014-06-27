@@ -7,14 +7,14 @@ protocol Identifiable {
 }
 
 // Adapted from WWDC2014 session 404 Advanced Swift.
-func fixpoint<Parameter : Hashable, Result> (initial: Result, body: (Parameter -> Result, Parameter) -> Result) -> Parameter -> Result {
-	var memo = Dictionary<Parameter, Result>()
+func fixpoint<Parameter : Identifiable, Result> (initial: Result, body: (Parameter -> Result, Parameter) -> Result) -> Parameter -> Result {
+	var memo = Dictionary<Parameter.Identifier, Result>()
 	var recursive: (Parameter -> Result)!
 	recursive = { parameter in
-		if let q = memo[parameter] { return q }
-		memo[parameter] = initial
+		if let q = memo[parameter.identity] { return q }
+		memo[parameter.identity] = initial
 		let result = body(recursive, parameter)
-		memo[parameter] = result
+		memo[parameter.identity] = result
 		return result
 	}
 	return recursive
