@@ -27,15 +27,13 @@ func describe<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> String {
 		case let .Alternation(left, right):
 			return "(\(recur(left)) ∪ \(recur(right)))"
 			
+			
 		case let .Concatenation(first, second) where first == second:
 			return "\(recur(first))+"
 			
 		case let .Concatenation(first, second):
 			return "(\(recur(first)) ✕ \(recur(second)))"
 
-//		case let .Intersection(left, right):
-//			return "(\(recur(left)) ∩ \(recur(right)))"
-			
 			
 		case let .Repetition(language):
 			return "\(recur(language))*"
