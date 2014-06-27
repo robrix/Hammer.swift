@@ -13,6 +13,7 @@
 		D439CF9B19574A43005BD842 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9A19574A43005BD842 /* Set.swift */; };
 		D439CFC519578250005BD842 /* Fixpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CFC419578250005BD842 /* Fixpoint.swift */; };
 		D4575576195E03B0001384D9 /* Combinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575575195E03B0001384D9 /* Combinator.swift */; };
+		D4575578195E122A001384D9 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575577195E122A001384D9 /* Equatable.swift */; };
 		D48201FF195CE0E20052CCF8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48201FE195CE0E20052CCF8 /* String.swift */; };
 		D4B9F75A193E73C400AC6B45 /* Hammer.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B9F759193E73C400AC6B45 /* Hammer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4B9F760193E73C400AC6B45 /* Hammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F754193E73C400AC6B45 /* Hammer.framework */; };
@@ -53,6 +54,7 @@
 		D439CF9A19574A43005BD842 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		D439CFC419578250005BD842 /* Fixpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixpoint.swift; sourceTree = "<group>"; };
 		D4575575195E03B0001384D9 /* Combinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combinator.swift; sourceTree = "<group>"; };
+		D4575577195E122A001384D9 /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		D48201FE195CE0E20052CCF8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D4B9F754193E73C400AC6B45 /* Hammer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hammer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B9F758193E73C400AC6B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				D439CF9219572912005BD842 /* Printing.swift */,
 				D439CF9619572ABC005BD842 /* Constructing.swift */,
+				D4575577195E122A001384D9 /* Equatable.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				D439CF9319572912005BD842 /* Printing.swift in Sources */,
 				D4C231051956013E001DE39D /* Box.swift in Sources */,
 				D439CFC519578250005BD842 /* Fixpoint.swift in Sources */,
+				D4575578195E122A001384D9 /* Equatable.swift in Sources */,
 				D4008310195A5E0E00E7D603 /* Test.swift in Sources */,
 				D4B9F771193E740900AC6B45 /* Language.swift in Sources */,
 				D439CF9B19574A43005BD842 /* Set.swift in Sources */,
