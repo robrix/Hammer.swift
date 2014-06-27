@@ -22,7 +22,7 @@ func fixpoint<Parameter : Hashable, Result> (initial: Result, body: (Parameter -
 
 
 
-/// Distributes hashing and equality over its members.
+/// A pair which distributes hashing and equality over its members. This is an implementation detail.
 struct HashablePair<T : Hashable> {
 	let left: T
 	let right: T
