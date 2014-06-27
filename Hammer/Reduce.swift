@@ -60,8 +60,3 @@ func _reduce<Into, Alphabet>(var memo: Dictionary<Language<Alphabet>, Into>, lan
 	
 	return into
 }
-
-
-extension String : Printable {
-	var description: String { return self }
-}
