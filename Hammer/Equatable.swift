@@ -1,7 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-/// Combinator conforms to Equatable.
-extension Combinator : Equatable {}
+// Combinator conforms to Equatable, but this isn’t explicitly declared due to linker errors.
+// cf rdar://17489254
 
 /// Equality between two combinators.
 func == <Alphabet : protocol<Printable, Hashable>> (left: Combinator<Alphabet>, right: Combinator<Alphabet>) -> Bool {
