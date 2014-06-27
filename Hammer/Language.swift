@@ -33,4 +33,3 @@ enum Language<Alphabet : protocol<Printable, Hashable>, Recur> {
 	
 	// fixme: file a radar for implicit properties of enumerations (i.e. an element of each case but not explicitly enumerated there). This would be ideal as we would be able to use a single type to parse instead of the combination of Combinator and Language.
 }
-}
