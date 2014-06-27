@@ -8,6 +8,7 @@ extension Combinator : Hashable {
 	}
 }
 
+
 /// Hash a combinator.
 func hash<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> Int {
 	let hash: Combinator<Alphabet> -> Int = fixpoint(0) { recur, combinator in
