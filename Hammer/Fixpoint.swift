@@ -13,3 +13,9 @@ func fixpoint<Parameter : Hashable, Result> (initial: Result, body: (Parameter -
 	}
 	return recursive
 }
+
+
+/// Return an ObjectIdentifier for \c a if possible. Will be \c None for non-class instances, and \c Some for class instances.
+func identify<T>(a: T) -> ObjectIdentifier? {
+	return reflect(a).objectIdentifier
+}
