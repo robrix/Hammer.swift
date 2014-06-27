@@ -9,3 +9,9 @@ class Combinator<Alphabet : protocol<Printable, Hashable>> {
 		self.language = language
 	}
 }
+
+
+/// Combinator conforms to Identifiable.
+extension Combinator : Identifiable {
+	var identity: ObjectIdentifier { return reflect(self).objectIdentifier! }
+}
