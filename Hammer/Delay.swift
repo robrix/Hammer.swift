@@ -2,7 +2,7 @@
 
 /// Takes an unevaluated closure \c value and returns a lazily-evaluating wrapper for it.
 func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
-	return Delay(thunk: value)
+	return Delay(value)
 }
 
 /// A lazily-provided value, convertible to its underlying type.
@@ -10,7 +10,7 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 	var _thunk: (() -> T)?
 	var _value: Box<T?>
 	
-	init(thunk: () -> T) {
+	init(_ thunk: () -> T) {
 		_thunk = thunk
 		_value = box(nil)
 	}
@@ -24,12 +24,12 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 	}
 }
 
+
 func == <T : Equatable> (left: Delay<T>, right: Delay<T>) -> Bool {
 	return ((left as T) == (right as T))
 }
 
 
-
-func hashValue<Delayed : Hashable>(delay: Delay<Delayed>) -> Int {
+func hash<Delayed : Hashable>(delay: Delay<Delayed>) -> Int {
 	return (delay as Delayed).hashValue
 }
