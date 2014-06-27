@@ -40,7 +40,7 @@ extension Combinator {
 			return count
 		}
 		
-		let empty = Combinator<String>(language: Language<String, Combinator<String>>.Empty)
+		let empty = Combinator<String>(language: Language.Empty)
 		assert(count(empty) == 1)
 		
 		let repetition = empty*

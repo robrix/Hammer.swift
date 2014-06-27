@@ -2,7 +2,7 @@
 
 /// Constructs the alternation of \c left and \c right.
 @infix func | <Alphabet : Alphabet> (left: @auto_closure () -> Combinator<Alphabet>, right: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
-	return Combinator<Alphabet>(language: Language<Alphabet, Combinator<Alphabet>>.Alternation(Delay(left), Delay(right)))
+	return Combinator(language: Language.Alternation(Delay(left), Delay(right)))
 }
 
 
@@ -11,7 +11,7 @@ operator infix ++ { associativity right precedence 145 }
 
 /// Constructs the concatenation of \c first and \c second.
 @infix func ++ <Alphabet : Alphabet> (first: @auto_closure () -> Combinator<Alphabet>, second: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
-	return Combinator<Alphabet>(language: Language<Alphabet, Combinator<Alphabet>>.Concatenation(Delay(first), Delay(second)))
+	return Combinator(language: Language.Concatenation(Delay(first), Delay(second)))
 }
 
 
@@ -23,7 +23,7 @@ operator postfix * {}
 /// \code
 ///     language*
 @postfix func * <Alphabet : Alphabet> (language: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
-	return Combinator<Alphabet>(language: Language<Alphabet, Combinator<Alphabet>>.Repetition(Delay(language)))
+	return Combinator(language: Language.Repetition(Delay(language)))
 }
 
 
