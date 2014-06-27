@@ -1,8 +1,8 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// Constructs the alternation of \c left and \c right.
-@infix func | <T where T : Equatable, T : Printable> (left: @auto_closure () -> Language<T, Combinator<T>>, right: @auto_closure () -> Language<T, Combinator<T>>) -> Language<T, Combinator<T>> {
-	return Language.Alternation(delay(Combinator(language: left())), delay(Combinator(language: right())))
+@infix func | <Alphabet : Alphabet> (left: @auto_closure () -> Combinator<Alphabet>, right: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
+	return Combinator<Alphabet>(language: Language<Alphabet, Combinator<Alphabet>>.Alternation(Delay(left), Delay(right)))
 }
 
 
@@ -10,8 +10,8 @@
 operator infix ++ { associativity right precedence 145 }
 
 /// Constructs the concatenation of \c first and \c second.
-@infix func ++ <T> (first: @auto_closure () -> Language<T, Combinator<T>>, second: @auto_closure () -> Language<T, Combinator<T>>) -> Language<T, Combinator<T>> {
-	return Language.Concatenation(delay(Combinator(language: first())), delay(Combinator(language: second())))
+@infix func ++ <Alphabet : Alphabet> (first: @auto_closure () -> Combinator<Alphabet>, second: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
+	return Combinator<Alphabet>(language: Language<Alphabet, Combinator<Alphabet>>.Concatenation(Delay(first), Delay(second)))
 }
 
 
@@ -22,8 +22,8 @@ operator postfix * {}
 ///
 /// \code
 ///     language*
-@postfix func * <T> (language: @auto_closure () -> Language<T, Combinator<T>>) -> Language<T, Combinator<T>> {
-	return Language.Repetition(delay(Combinator(language: language())))
+@postfix func * <Alphabet : Alphabet> (language: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
+	return Combinator<Alphabet>(language: Language<Alphabet, Combinator<Alphabet>>.Repetition(Delay(language)))
 }
 
 
@@ -36,7 +36,7 @@ operator postfix + {}
 ///
 /// \code
 ///     language+
-@postfix func + <T> (language: @auto_closure () -> Language<T, Combinator<T>>) -> Language<T, Combinator<T>> {
+@postfix func + <Alphabet : Alphabet> (language: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
 	return language ++ language*
 }
 

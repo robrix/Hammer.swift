@@ -11,7 +11,6 @@ class Combinator<Alphabet : Alphabet> {
 }
 
 
-
 /// Combinator conforms to Identifiable.
 extension Combinator : Identifiable {
 	var identity: ObjectIdentifier { return reflect(self).objectIdentifier! }
@@ -41,17 +40,19 @@ extension Combinator {
 			return count
 		}
 		
-		let empty: Combinator<String> = Combinator<String>(language: Language<String, Combinator<String>>.Empty)
+		let empty = Combinator<String>(language: Language<String, Combinator<String>>.Empty)
 		assert(count(empty) == 1)
 		
-		let repetition = Combinator<String>(language: empty.language*)
+		let repetition = empty*
 		assert(count(repetition) == 2)
 		
-		let concatenation = Combinator<String>(language: empty.language+)
+		let concatenation = empty+
 		assert(count(concatenation) == 4)
 		
 		var cyclic: Combinator<String>!
-		cyclic = Combinator<String>(language: empty.language ++ cyclic.language ++ empty.language | empty.language)
-		assert(count(cyclic) == 8) // fixme: there’s a bug here in that there are two alternations in the graph, and not just one
+		cyclic = empty ++ cyclic ++ empty | empty
+		println(cyclic)
+		println(count(cyclic))
+		assert(count(cyclic) == 6) // fixme: there’s a bug here in that there are two alternations in the graph, and not just one
 	}
 }
