@@ -20,6 +20,19 @@ func fixpoint<Parameter : Identifiable, Result> (initial: Result, body: (Paramet
 	return recursive
 }
 
+func fixpoint<Parameter : Hashable, Result> (initial: Result, body: ((Parameter, Parameter) -> Result, Parameter, Parameter) -> Result) -> (Parameter, Parameter) -> Result {
+	var memo = Dictionary<HashablePair<Parameter>, Result>()
+	var recursive: ((Parameter, Parameter) -> Result)!
+	recursive = { a, b in
+		let pair = HashablePair(a, b)
+		if let q = memo[pair] { return q }
+		memo[pair] = initial
+		let result = body(recursive, a, b)
+		memo[pair] = result
+		return result
+	}
+	return recursive
+}
 
 
 /// A pair which distributes hashing and equality over its members. This is an implementation detail.
