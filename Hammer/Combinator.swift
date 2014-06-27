@@ -53,6 +53,6 @@ extension Combinator {
 		cyclic = empty ++ cyclic ++ empty | empty
 		println(cyclic)
 		println(count(cyclic))
-		assert(count(cyclic) == 6) // fixme: there’s a bug here in that there are two alternations in the graph, and not just one
+		assert(count(cyclic) == 6)
 	}
 }
