@@ -6,8 +6,8 @@
 /// Equality between two combinators.
 func == <Alphabet : Alphabet> (left: Combinator<Alphabet>, right: Combinator<Alphabet>) -> Bool {
 	// fixme: file a radar about the lack of type parameters for anonymous closures, variables, & constants
-	let equal: (Combinator<Alphabet>, Combinator<Alphabet>) -> Bool = fixpoint(true) { recur, a, b in
-		switch (a.language, b.language) {
+	let equal: (Combinator<Alphabet>, Combinator<Alphabet>) -> Bool = fixpoint(true) { recur, pair in
+		switch (pair.0.language, pair.1.language) {
 		case (.Empty, .Empty):
 			return true
 			
