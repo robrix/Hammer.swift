@@ -1,5 +1,8 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+/// Returns the derivative of \c combinator with respect to \c character.
+///
+/// The derivative is a parser which behaves as tho it had already parsed \c character. I.e. if the original parser accepts \c character, then the new parser will start with a null reduction of \c character. Otherwise, it will be empty.
 func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Alphabet) -> Combinator<Alphabet> {
 	let derive: (Combinator<Alphabet>, Alphabet) -> Combinator<Alphabet> = fixpoint(combinator, { HashablePair($0.identity, $1) }) { recur, parameters in
 		switch combinator.language {
