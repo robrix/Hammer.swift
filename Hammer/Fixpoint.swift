@@ -36,11 +36,11 @@ func fixpoint<Parameter : Hashable, Result> (initial: Result, body: ((Parameter,
 
 
 /// A pair which distributes hashing and equality over its members. This is an implementation detail.
-struct HashablePair<T : Hashable> {
+struct HashablePair<T : Hashable, U : Hashable> {
 	let left: T
-	let right: T
+	let right: U
 	
-	init(_ a: T, _ b: T) {
+	init(_ a: T, _ b: U) {
 		left = a
 		right = b
 	}
@@ -54,7 +54,7 @@ func identify<T>(a: T) -> ObjectIdentifier? {
 
 
 /// Distribute equality over hashable pairs.
-func == <T> (a: HashablePair<T>, b: HashablePair<T>) -> Bool {
+func == <T, U> (a: HashablePair<T, U>, b: HashablePair<T, U>) -> Bool {
 	return identify(a.left)! == identify(b.left)! && identify(a.right)! == identify(b.right)!
 }
 
