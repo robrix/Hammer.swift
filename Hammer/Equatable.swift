@@ -1,5 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+import Set
+
 // Combinator conforms to Equatable, but this isn’t explicitly declared due to linker errors.
 // cf rdar://17489254
 

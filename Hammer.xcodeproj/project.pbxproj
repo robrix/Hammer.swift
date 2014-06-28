@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D4008310195A5E0E00E7D603 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D400830F195A5E0E00E7D603 /* Test.swift */; };
+		D40D2672195F116F00BC535B /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D266F195F116300BC535B /* Set.framework */; };
 		D439CF9319572912005BD842 /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9219572912005BD842 /* Printable.swift */; };
 		D439CF9719572ABC005BD842 /* Construction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9619572ABC005BD842 /* Construction.swift */; };
-		D439CF9B19574A43005BD842 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9A19574A43005BD842 /* Set.swift */; };
 		D439CFC519578250005BD842 /* Fixpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CFC419578250005BD842 /* Fixpoint.swift */; };
 		D4575576195E03B0001384D9 /* Combinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575575195E03B0001384D9 /* Combinator.swift */; };
 		D4575578195E122A001384D9 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575577195E122A001384D9 /* Equatable.swift */; };
@@ -28,6 +28,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D40D266E195F116300BC535B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D40D2669195F116300BC535B /* Set.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D439CFA619575720005BD842;
+			remoteInfo = Set;
+		};
+		D40D2670195F116300BC535B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D40D2669195F116300BC535B /* Set.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D439CFB119575720005BD842;
+			remoteInfo = SetTests;
+		};
 		D4B9F761193E73C400AC6B45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4B9F74B193E73C300AC6B45 /* Project object */;
@@ -53,9 +67,9 @@
 
 /* Begin PBXFileReference section */
 		D400830F195A5E0E00E7D603 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		D40D2669195F116300BC535B /* Set.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Set.xcodeproj; path = External/Set/Set.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D439CF9219572912005BD842 /* Printable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		D439CF9619572ABC005BD842 /* Construction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Construction.swift; sourceTree = "<group>"; };
-		D439CF9A19574A43005BD842 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		D439CFC419578250005BD842 /* Fixpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixpoint.swift; sourceTree = "<group>"; };
 		D4575575195E03B0001384D9 /* Combinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combinator.swift; sourceTree = "<group>"; };
 		D4575577195E122A001384D9 /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
@@ -81,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D40D2672195F116F00BC535B /* Set.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D40D266A195F116300BC535B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D40D266F195F116300BC535B /* Set.framework */,
+				D40D2671195F116300BC535B /* SetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D439CF91195728F7005BD842 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,10 +166,10 @@
 		D4B9F757193E73C400AC6B45 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D40D2669195F116300BC535B /* Set.xcodeproj */,
 				D4C231041956013E001DE39D /* Box.swift */,
 				D4C231021955FB89001DE39D /* Delay.swift */,
 				D439CFC419578250005BD842 /* Fixpoint.swift */,
-				D439CF9A19574A43005BD842 /* Set.swift */,
 				D400830F195A5E0E00E7D603 /* Test.swift */,
 				D4B9F758193E73C400AC6B45 /* Info.plist */,
 				D48201FE195CE0E20052CCF8 /* String.swift */,
@@ -251,6 +275,12 @@
 			mainGroup = D4B9F74A193E73C300AC6B45;
 			productRefGroup = D4B9F755193E73C400AC6B45 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D40D266A195F116300BC535B /* Products */;
+					ProjectRef = D40D2669195F116300BC535B /* Set.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D4B9F753193E73C400AC6B45 /* Hammer */,
@@ -258,6 +288,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D40D266F195F116300BC535B /* Set.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Set.framework;
+			remoteRef = D40D266E195F116300BC535B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D40D2671195F116300BC535B /* SetTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SetTests.xctest;
+			remoteRef = D40D2670195F116300BC535B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D4B9F752193E73C400AC6B45 /* Resources */ = {
@@ -292,7 +339,6 @@
 				D4008310195A5E0E00E7D603 /* Test.swift in Sources */,
 				D457557C195E15A9001384D9 /* Alphabet.swift in Sources */,
 				D4B9F771193E740900AC6B45 /* Language.swift in Sources */,
-				D439CF9B19574A43005BD842 /* Set.swift in Sources */,
 				D4575580195EE82A001384D9 /* Nullability.swift in Sources */,
 				D439CF9719572ABC005BD842 /* Construction.swift in Sources */,
 				D4C231031955FB89001DE39D /* Delay.swift in Sources */,

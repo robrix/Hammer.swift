@@ -1,5 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+import Set
+
 /// The definition of a context-free language whose individual elements are of type `Alphabet`.
 ///
 /// `Recur` is the type through which recursion is handled, allowing languages to have state associated with them, but without requiring them to include it in each of their definitions. For context-free languages, `Recur` can be expected to have a `language` property with the appropriate types for `Recur` and `Alphabet`.
@@ -10,7 +12,7 @@ enum Language<Alphabet : Alphabet, Recur> {
 	/// A null language, i.e. a language which accepts the empty string.
 	///
 	/// Its parameter is a parse forest of recognized input.
-	case Null(Alphabet[])
+	case Null(Set<Alphabet>)
 	
 	/// A literal, i.e. matches the literal of type `Alphabet`.
 	case Literal(Box<Alphabet>)
