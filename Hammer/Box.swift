@@ -23,6 +23,11 @@ func box<T>(value: T) -> Box<T> {
 }
 
 
+extension Box : Identifiable {
+	var identity: ObjectIdentifier { return reflect(self).objectIdentifier! }
+}
+
+
 func == <Boxed : Equatable>(a: Box<Boxed>, b: Box<Boxed>) -> Bool {
 	return a.value == b.value
 }
