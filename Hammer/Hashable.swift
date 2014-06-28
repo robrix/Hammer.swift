@@ -21,7 +21,7 @@ func hash<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> Int {
 			
 			
 		case let .Literal(c):
-			return Hammer.hashValue(c)
+			return Hammer.hash(c)
 			
 			
 		case let .Alternation(left, right):

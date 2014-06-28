@@ -4,7 +4,7 @@
 ///
 /// This is a currently-required implementation detail to handle the compiler’s lack of codegen for recursive enum/struct definitions, and classes with non-fixed layout.
 func box<T>(value: T) -> Box<T> {
-	return Box(value: value)
+	return Box(value)
 }
 
 /// A box for a value which would otherwise cause compiler issues: recursive enum/struct definitions, and classes with non-fixed layout.
@@ -13,7 +13,7 @@ func box<T>(value: T) -> Box<T> {
 	
 	var value: T { return _value[0] }
 	
-	init(value: T) {
+	init(_ value: T) {
 		_value = [ value ]
 	}
 	
@@ -33,6 +33,6 @@ func == <Boxed : Equatable>(a: Box<Boxed>, b: Box<Boxed>) -> Bool {
 }
 
 
-func hashValue<Boxed : Hashable>(box: Box<Boxed>) -> Int {
+func hash<Boxed : Hashable>(box: Box<Boxed>) -> Int {
 	return box.value.hashValue
 }
