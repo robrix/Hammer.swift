@@ -16,7 +16,7 @@ func describe<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> String {
 			return "∅"
 			
 		case let .Null(parses):
-			let joined = join(" ", map(parses) { return $0.description })
+			let joined = join(" ", map(parses) { $0.description })
 			return "ε↓{\(joined)}"
 			
 			
