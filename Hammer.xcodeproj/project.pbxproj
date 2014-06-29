@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D4008310195A5E0E00E7D603 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D400830F195A5E0E00E7D603 /* Test.swift */; };
+		D40D2666195EF2A200BC535B /* ParseForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D2665195EF2A200BC535B /* ParseForest.swift */; };
 		D40D2672195F116F00BC535B /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D266F195F116300BC535B /* Set.framework */; };
+		D40D26A41960448B00BC535B /* List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D26A11960448000BC535B /* List.framework */; };
 		D439CF9319572912005BD842 /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9219572912005BD842 /* Printable.swift */; };
 		D439CF9719572ABC005BD842 /* Construction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9619572ABC005BD842 /* Construction.swift */; };
 		D439CFC519578250005BD842 /* Fixpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CFC419578250005BD842 /* Fixpoint.swift */; };
@@ -42,6 +44,20 @@
 			remoteGlobalIDString = D439CFB119575720005BD842;
 			remoteInfo = SetTests;
 		};
+		D40D26A01960448000BC535B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D40D269B1960448000BC535B /* List.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D40D267D195F198500BC535B;
+			remoteInfo = List;
+		};
+		D40D26A21960448000BC535B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D40D269B1960448000BC535B /* List.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D40D2688195F198500BC535B;
+			remoteInfo = ListTests;
+		};
 		D4B9F761193E73C400AC6B45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4B9F74B193E73C300AC6B45 /* Project object */;
@@ -67,7 +83,9 @@
 
 /* Begin PBXFileReference section */
 		D400830F195A5E0E00E7D603 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		D40D2665195EF2A200BC535B /* ParseForest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseForest.swift; sourceTree = "<group>"; };
 		D40D2669195F116300BC535B /* Set.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Set.xcodeproj; path = External/Set/Set.xcodeproj; sourceTree = SOURCE_ROOT; };
+		D40D269B1960448000BC535B /* List.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = List.xcodeproj; path = External/List/List.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D439CF9219572912005BD842 /* Printable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		D439CF9619572ABC005BD842 /* Construction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Construction.swift; sourceTree = "<group>"; };
 		D439CFC419578250005BD842 /* Fixpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixpoint.swift; sourceTree = "<group>"; };
@@ -95,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D40D26A41960448B00BC535B /* List.framework in Frameworks */,
 				D40D2672195F116F00BC535B /* Set.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +138,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D40D269C1960448000BC535B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D40D26A11960448000BC535B /* List.framework */,
+				D40D26A31960448000BC535B /* ListTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D439CF91195728F7005BD842 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +155,7 @@
 				D4575577195E122A001384D9 /* Equatable.swift */,
 				D4575579195E1269001384D9 /* Hashable.swift */,
 				D457557F195EE82A001384D9 /* Nullability.swift */,
+				D40D2665195EF2A200BC535B /* ParseForest.swift */,
 				D439CF9219572912005BD842 /* Printable.swift */,
 			);
 			name = Operations;
@@ -166,13 +195,14 @@
 		D4B9F757193E73C400AC6B45 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D40D269B1960448000BC535B /* List.xcodeproj */,
 				D40D2669195F116300BC535B /* Set.xcodeproj */,
 				D4C231041956013E001DE39D /* Box.swift */,
 				D4C231021955FB89001DE39D /* Delay.swift */,
 				D439CFC419578250005BD842 /* Fixpoint.swift */,
+				D48201FE195CE0E20052CCF8 /* String.swift */,
 				D400830F195A5E0E00E7D603 /* Test.swift */,
 				D4B9F758193E73C400AC6B45 /* Info.plist */,
-				D48201FE195CE0E20052CCF8 /* String.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -277,6 +307,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = D40D269C1960448000BC535B /* Products */;
+					ProjectRef = D40D269B1960448000BC535B /* List.xcodeproj */;
+				},
+				{
 					ProductGroup = D40D266A195F116300BC535B /* Products */;
 					ProjectRef = D40D2669195F116300BC535B /* Set.xcodeproj */;
 				},
@@ -302,6 +336,20 @@
 			fileType = wrapper.cfbundle;
 			path = SetTests.xctest;
 			remoteRef = D40D2670195F116300BC535B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D40D26A11960448000BC535B /* List.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = List.framework;
+			remoteRef = D40D26A01960448000BC535B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D40D26A31960448000BC535B /* ListTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ListTests.xctest;
+			remoteRef = D40D26A21960448000BC535B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -338,6 +386,7 @@
 				D4575578195E122A001384D9 /* Equatable.swift in Sources */,
 				D4008310195A5E0E00E7D603 /* Test.swift in Sources */,
 				D457557C195E15A9001384D9 /* Alphabet.swift in Sources */,
+				D40D2666195EF2A200BC535B /* ParseForest.swift in Sources */,
 				D4B9F771193E740900AC6B45 /* Language.swift in Sources */,
 				D4575580195EE82A001384D9 /* Nullability.swift in Sources */,
 				D439CF9719572ABC005BD842 /* Construction.swift in Sources */,
