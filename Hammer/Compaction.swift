@@ -12,6 +12,11 @@ func compact<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> Combinato
 			return recur(y)
 		case let .Alternation(x, y) where recur(y).language == .Empty:
 			return recur(x)
+		
+		/// Concatenations with Empty are equivalent to Empty.
+		case let .Concatenation(x, y) where recur(x).language == .Empty || recur(y).language == .Empty:
+			return Combinator(.Empty)
+		
 		default:
 			return combinator
 		}
