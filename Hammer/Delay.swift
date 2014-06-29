@@ -10,6 +10,8 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 	var _thunk: (() -> T)?
 	var _value: Box<T?>
 	
+	var forced: T { return __conversion() }
+	
 	init(_ thunk: () -> T) {
 		_thunk = thunk
 		_value = box(nil)
