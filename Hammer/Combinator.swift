@@ -17,8 +17,8 @@ extension Combinator : Identifiable {
 }
 
 
-extension Combinator {
-	class func performTests() {
+extension Combinator : Testable {
+	class func _performTests() {
 		let count: Combinator<String> -> Int = fixpoint(0) { recur, combinator in
 			var count = 1
 			switch combinator.language {
