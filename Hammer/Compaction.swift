@@ -2,10 +2,19 @@
 
 /// Returns a combinator equivalent to \c combinator but more compact.
 ///
-/// If the language cannot be compacted, it is just returned.
+/// If the language cannot be compacted, it is returned unchanged.
 func compact<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> Combinator<Alphabet> {
-	switch combinator.language {
-	default:
-		return combinator
+	let compact: Combinator<Alphabet> -> Combinator<Alphabet> = fixpoint(combinator) { recur, combinator in
+		switch combinator.language {
+		
+		/// Alternations with Empty are equivalent to the other alternative.
+		case let .Alternation(x, y) where recur(x).language == .Empty:
+			return recur(y)
+		case let .Alternation(x, y) where recur(y).language == .Empty:
+			return recur(x)
+		default:
+			return combinator
+		}
 	}
+	return compact(combinator)
 }
