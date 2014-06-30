@@ -24,6 +24,17 @@ func compact<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> Combinato
 		case let .Repetition(x) where recur(x).language == .Empty:
 			// fixme: how does this even work? List() is not in Alphabet.
 			return Combinator(.Null(Set(List())))
+			
+		/// Reductions of reductions compose.
+		case let .Reduction(x, f):
+//			switch recur(x).language {
+//			case let .Reduction(y, g):
+//				let composition: Alphabet -> Any = compose(g, f)
+//				return Combinator(.Reduction(y, composition))
+//			default:
+//				break
+//			}
+			fallthrough
 		
 		default:
 			return combinator
