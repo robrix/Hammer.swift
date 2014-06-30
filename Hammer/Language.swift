@@ -35,3 +35,27 @@ enum Language<Alphabet : Alphabet, Recur> {
 	
 	// fixme: file a radar for implicit properties of enumerations (i.e. an element of each case but not explicitly enumerated there). This would be ideal as we would be able to use a single type to parse instead of the combination of Combinator and Language.
 }
+
+
+/// Equality on Languages. This is nonrecursive equality of the enum tag itself, not its state.
+func == <Alphabet : Alphabet, Recur> (a: Language<Alphabet, Recur>, b: Language<Alphabet, Recur>) -> Bool {
+	switch (a, b) {
+	case (.Empty, .Empty):
+		return true
+	case (.Null, .Null):
+		return true
+	case (.Literal, .Literal):
+		return true
+	case (.Alternation, .Alternation):
+		return true
+	case (.Concatenation, .Concatenation):
+		return true
+	case (.Repetition, .Repetition):
+		return true
+	case (.Reduction, .Reduction):
+		return true
+		
+	default:
+		return false
+	}
+}

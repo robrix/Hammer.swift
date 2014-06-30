@@ -10,6 +10,8 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 	var _thunk: (() -> T)?
 	var _value: Box<T?>
 	
+	var forced: T { return __conversion() }
+	
 	init(_ thunk: () -> T) {
 		_thunk = thunk
 		_value = box(nil)
@@ -27,6 +29,10 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 
 func == <T : Equatable> (left: Delay<T>, right: Delay<T>) -> Bool {
 	return ((left as T) == (right as T))
+}
+
+func == <T : Equatable> (left: Delay<T>, right: T) -> Bool {
+	return (left as T) == right
 }
 
 
