@@ -33,7 +33,7 @@ enum Language<Alphabet : Alphabet, Recur> {
 	/// The reduction of a language by a function.
 	case Reduction(Delay<Recur>, Alphabet -> Any)
 	
-	// fixme: file a radar for implicit properties of enumerations (i.e. an element of each case but not explicitly enumerated there). This would be ideal as we would be able to use a single type to parse instead of the combination of Combinator and Language.
+	// Any desired state has to be mediated by the Recur type because enumerations cannot hold noncomputed properties. rdar://17500738
 }
 
 
