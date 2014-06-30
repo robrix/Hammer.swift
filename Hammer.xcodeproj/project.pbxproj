@@ -22,6 +22,7 @@
 		D4575580195EE82A001384D9 /* Nullability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457557F195EE82A001384D9 /* Nullability.swift */; };
 		D48201FF195CE0E20052CCF8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48201FE195CE0E20052CCF8 /* String.swift */; };
 		D4B47C781960A73700288643 /* Compaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B47C771960A73700288643 /* Compaction.swift */; };
+		D4B47C861960E95B00288643 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B47C851960E95B00288643 /* Identifiable.swift */; };
 		D4B47C7E1960CF0200288643 /* Compose.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B47C7D1960CF0200288643 /* Compose.swift */; };
 		D4B9F75A193E73C400AC6B45 /* Hammer.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B9F759193E73C400AC6B45 /* Hammer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4B9F760193E73C400AC6B45 /* Hammer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9F754193E73C400AC6B45 /* Hammer.framework */; };
@@ -99,6 +100,7 @@
 		D457557F195EE82A001384D9 /* Nullability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nullability.swift; sourceTree = "<group>"; };
 		D48201FE195CE0E20052CCF8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D4B47C771960A73700288643 /* Compaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compaction.swift; sourceTree = "<group>"; };
+		D4B47C851960E95B00288643 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		D4B47C7D1960CF0200288643 /* Compose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compose.swift; sourceTree = "<group>"; };
 		D4B9F754193E73C400AC6B45 /* Hammer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hammer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B9F758193E73C400AC6B45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				D457557D195E2D72001384D9 /* Derivation.swift */,
 				D4575577195E122A001384D9 /* Equatable.swift */,
 				D4575579195E1269001384D9 /* Hashable.swift */,
+				D4B47C851960E95B00288643 /* Identifiable.swift */,
 				D457557F195EE82A001384D9 /* Nullability.swift */,
 				D40D2665195EF2A200BC535B /* ParseForest.swift */,
 				D439CF9219572912005BD842 /* Printable.swift */,
@@ -398,6 +401,7 @@
 				D4B9F771193E740900AC6B45 /* Language.swift in Sources */,
 				D4575580195EE82A001384D9 /* Nullability.swift in Sources */,
 				D439CF9719572ABC005BD842 /* Construction.swift in Sources */,
+				D4B47C861960E95B00288643 /* Identifiable.swift in Sources */,
 				D4C231031955FB89001DE39D /* Delay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
