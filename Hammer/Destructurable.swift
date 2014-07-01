@@ -8,7 +8,11 @@ protocol Destructurable {
 	func destructure() -> Pattern
 }
 
+/// Combinator is Destructurable.
 extension Combinator {
+	/// Destructures the receiver’s language one level of recursion deep.
+	///
+	/// I.e. this evaluates the children of the receiver (if the receiver is nonterminal), but does not evaluate their children.
 	func destructure() -> DestructuredLanguage<Alphabet, Combinator<Alphabet>> {
 		switch self.language {
 		case .Empty:
