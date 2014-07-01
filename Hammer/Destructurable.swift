@@ -7,7 +7,7 @@ protocol Destructurable {
 }
 
 
-func destructure2<Alphabet : Alphabet>(language: Language<Alphabet, Combinator<Alphabet>>) -> Language<Alphabet, Language<Alphabet, Combinator<Alphabet>>> {
+func destructure<Alphabet : Alphabet>(language: Language<Alphabet, Combinator<Alphabet>>) -> Language<Alphabet, Language<Alphabet, Combinator<Alphabet>>> {
 	switch language {
 	case .Empty:
 		return .Empty
