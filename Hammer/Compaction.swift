@@ -48,17 +48,21 @@ func compact<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> Combinato
 extension Combinator {
 	func compact() -> Combinator<Alphabet> {
 		switch self.destructure() {
+		/// Alternations with Empty are equivalent to the other alternative.
 		case let .Alternation(x, .Empty):
 			return Combinator(.Empty)
 		case let .Alternation(.Empty, y):
 			return Combinator(y)
 			
+		/// Concatenations with Empty are equivalent to Empty.
 		case .Concatenation(.Empty, _), .Concatenation(_, .Empty):
 			return Combinator(.Empty)
 			
+		/// Repetitions of empty are equivalent to parsing the empty string.
 		case .Repetition(.Empty):
 			return Combinator(.Null(Set(List())))
 			
+		/// Reductions of reductions compose.
 //		case let .Reduction(.Reduction(x, f), g):
 //			let composed = compose(g, f)
 //			return Combinator(.Reduction(x, composed))
