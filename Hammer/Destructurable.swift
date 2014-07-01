@@ -35,16 +35,6 @@ extension Combinator {
 	}
 }
 
-/*
-
-switch destructure(combinator.language) {
-case .Reduction(.Reduction(x, f), g):
-	return .Reduction(x, compose(g, f))
-
-case .Repetition(.Empty)
-}
-
-*/
 
 // We would like to put Delay<…> in Recur instead of in Language, and have destructure() return Language<Language<Alphabet, Recur>>, but the compiler does not currently do codegen for enums like that (rdar://17520072). This is a hack to work around that, while still allowing us to pattern match recursively.
 enum DestructuredLanguage<Alphabet : Alphabet, Recur> {
