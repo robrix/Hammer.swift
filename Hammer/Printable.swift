@@ -21,7 +21,7 @@ func describe<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> String {
 			
 			
 		case let .Literal(c):
-			return "'\(c)'"
+			return "'\(toString(c))'"
 			
 			
 		case let .Alternation(left, right):
