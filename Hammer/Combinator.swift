@@ -34,7 +34,7 @@ extension Combinator : Testable {
 			return count
 		}
 		
-		let empty = Combinator<String>(Language.Empty)
+		let empty = Combinator<String>(.Empty)
 		assert(count(empty) == 1)
 		
 		let repetition = empty*
