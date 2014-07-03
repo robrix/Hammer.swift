@@ -17,3 +17,9 @@ extension Combinator : Identifiable {
 extension Character : Identifiable {
 	var identity: String { return String(self) }
 }
+
+
+/// String conforms to Identifiable.
+extension String : Identifiable {
+	var identity: String { return self }
+}
