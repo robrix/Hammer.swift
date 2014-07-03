@@ -13,5 +13,8 @@ extension Combinator {
 
 struct ParsingTests : Testable {
 	static func _performTests() {
+		let xs = Combinator(literal: "x")*
+		let nullParses = xs.parse([""])
+		assert(nullParses.count == 0)
 	}
 }
