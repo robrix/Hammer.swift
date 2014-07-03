@@ -17,7 +17,7 @@ func fixpoint<Parameter : Identifiable, Result> (initial: Result, body: ((Parame
 /// Initially adapted from the \c memoize function in WWDC2014 session 404 Advanced Swift.
 func fixpoint<Parameter, Result, Decorator : Hashable>(initial: Result, wrap: Parameter -> Decorator, body: (Parameter -> Result, Parameter) -> Result) -> Parameter -> Result {
 	var memo = Dictionary<Decorator, Result>()
-	var recursive: (Parameter -> Result)! = nil
+	var recursive: (Parameter -> Result)!
 	recursive = { parameter in
 		let key = wrap(parameter)
 		if let found = memo[key] { return found }
