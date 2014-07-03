@@ -10,3 +10,8 @@ extension Combinator {
 		})
 	}
 }
+
+struct ParsingTests : Testable {
+	static func _performTests() {
+	}
+}
