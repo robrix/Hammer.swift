@@ -8,8 +8,6 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 		switch combinator.language {
 		case let .Literal(c) where c == character:
 			return Combinator(.Null([c]))
-		case let .Literal(c):
-			return Combinator(.Empty)
 			
 		case let .Alternation(x, y):
 			return Combinator(.Alternation(delay(recur(x, character)), delay(recur(y, character))))
@@ -26,7 +24,7 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 			return recur(x, character) --> f
 			
 		default:
-			return combinator
+			return Combinator(.Empty)
 		}
 	}
 	return derive(combinator, character)
