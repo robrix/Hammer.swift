@@ -51,3 +51,11 @@ operator infix --> {}
 @infix func --> <Alphabet : Alphabet> (language: @auto_closure () -> Combinator<Alphabet>, f: Alphabet -> Any) -> Combinator<Alphabet> {
 	return Combinator(Language.Reduction(Delay(language), f))
 }
+
+
+extension Combinator {
+	/// Constructs a literal combinator.
+	convenience init(literal: Alphabet) {
+		self.init(.Literal(box(literal)))
+	}
+}
