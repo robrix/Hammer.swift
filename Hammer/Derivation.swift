@@ -5,6 +5,7 @@
 /// The derivative is a parser which behaves as tho it had already parsed \c character. I.e. if the original parser accepts \c character, then the new parser will start with a null reduction of \c character. Otherwise, it will be empty.
 func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Alphabet) -> Combinator<Alphabet> {
 	let derive: (Combinator<Alphabet>, Alphabet) -> Combinator<Alphabet> = fixpoint(combinator, { HashablePair($0, $1) }) { recur, parameters in
+		let (combinator, character) = parameters
 		switch combinator.language {
 		case let .Literal(c) where c == character:
 			return Combinator(.Null([c]))
