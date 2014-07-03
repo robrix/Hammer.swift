@@ -11,3 +11,9 @@ protocol Identifiable {
 extension Combinator : Identifiable {
 	var identity: ObjectIdentifier { return reflect(self).objectIdentifier! }
 }
+
+
+/// Character conforms to Identifiable.
+extension Character : Identifiable {
+	var identity: String { return String(self) }
+}
