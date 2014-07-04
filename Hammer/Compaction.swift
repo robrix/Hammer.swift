@@ -50,7 +50,7 @@ extension Combinator {
 		switch self.destructure() {
 		/// Alternations with Empty are equivalent to the other alternative.
 		case let .Alternation(x, .Empty):
-			return Combinator(.Empty)
+			return Combinator(x)
 		case let .Alternation(.Empty, y):
 			return Combinator(y)
 			
