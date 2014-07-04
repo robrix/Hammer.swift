@@ -9,7 +9,7 @@ extension Combinator {
 	/// If the language cannot be compacted, it is returned unchanged.
 	func compact() -> Combinator<Alphabet> {
 		let compact: Recur -> Recur = fixpoint(self) { recur, combinator in
-			switch combinator.destructure() {
+			switch combinator.destructure(recur) {
 			/// Alternations with Empty are equivalent to the other alternative.
 			case let .Alternation(x, .Empty):
 				return Combinator(x)
@@ -51,5 +51,9 @@ struct CompactionTests : Testable {
 		assert(literalAltEmpty == literal)
 		let emptyAltLiteral = (empty | literal).compact()
 		assert(emptyAltLiteral == literal)
+		
+		var cyclic: Combinator<String>!
+		cyclic = cyclic ++ empty | literal
+		assert(cyclic.compact() == literal)
 	}
 }
