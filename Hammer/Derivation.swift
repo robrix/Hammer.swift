@@ -38,6 +38,9 @@ struct DerivingTests : Testable {
 		let x = "x"
 		let xs = Combinator(literal: x)*
 		let xs1 = derive(xs, x).compact()
-		assert(xs1 == Combinator(parsed: [x]) ++ xs)
+		let parsed = Combinator(parsed: [x])
+		assert(xs1 == parsed ++ xs)
+		let xs2 = derive(xs1, x).compact()
+		assert(xs2 == parsed ++ parsed ++ xs)
 	}
 }
