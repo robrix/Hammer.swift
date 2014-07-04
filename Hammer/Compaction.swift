@@ -25,9 +25,9 @@ extension Combinator {
 				return Combinator(.Null(Set(List())))
 				
 			/// Reductions of reductions compose.
-			//		case let .Reduction(.Reduction(x, f), g):
-			//			let composed = compose(g, f)
-			//			return Combinator(.Reduction(x, composed))
+//			case let .Reduction(.Reduction(x, f), g):
+//				let composed = compose(g, f)
+//				return Combinator(.Reduction(x, composed))
 			default:
 				return combinator
 			}
