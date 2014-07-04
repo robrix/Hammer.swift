@@ -8,28 +8,31 @@ extension Combinator {
 	///
 	/// If the language cannot be compacted, it is returned unchanged.
 	func compact() -> Combinator<Alphabet> {
-		switch self.destructure() {
-		/// Alternations with Empty are equivalent to the other alternative.
-		case let .Alternation(x, .Empty):
-			return Combinator(x)
-		case let .Alternation(.Empty, y):
-			return Combinator(y)
-			
-		/// Concatenations with Empty are equivalent to Empty.
-		case .Concatenation(.Empty, _), .Concatenation(_, .Empty):
-			return Combinator(.Empty)
-			
-		/// Repetitions of empty are equivalent to parsing the empty string.
-		case .Repetition(.Empty):
-			return Combinator(.Null(Set(List())))
-			
-		/// Reductions of reductions compose.
-//		case let .Reduction(.Reduction(x, f), g):
-//			let composed = compose(g, f)
-//			return Combinator(.Reduction(x, composed))
-		default:
-			return self
+		let compact: Recur -> Recur = fixpoint(self) { recur, combinator in
+			switch combinator.destructure() {
+			/// Alternations with Empty are equivalent to the other alternative.
+			case let .Alternation(x, .Empty):
+				return Combinator(x)
+			case let .Alternation(.Empty, y):
+				return Combinator(y)
+				
+			/// Concatenations with Empty are equivalent to Empty.
+			case .Concatenation(.Empty, _), .Concatenation(_, .Empty):
+				return Combinator(.Empty)
+				
+			/// Repetitions of empty are equivalent to parsing the empty string.
+			case .Repetition(.Empty):
+				return Combinator(.Null(Set(List())))
+				
+			/// Reductions of reductions compose.
+			//		case let .Reduction(.Reduction(x, f), g):
+			//			let composed = compose(g, f)
+			//			return Combinator(.Reduction(x, composed))
+			default:
+				return combinator
+			}
 		}
+		return compact(self)
 	}
 }
 
