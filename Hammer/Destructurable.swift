@@ -14,7 +14,7 @@ extension Combinator {
 	///
 	/// I.e. this evaluates the children of the receiver (if the receiver is nonterminal), but does not evaluate their children.
 	func destructure() -> DestructuredLanguage<Alphabet, Combinator<Alphabet>> {
-		switch self.language {
+		switch language {
 		case .Empty:
 			return .Empty
 			
