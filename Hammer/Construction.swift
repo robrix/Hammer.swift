@@ -1,5 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+import Set
+
 /// Constructs the alternation of \c left and \c right.
 @infix func | <Alphabet : Alphabet> (left: @auto_closure () -> Combinator<Alphabet>, right: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
 	return Combinator(Language.Alternation(Delay(left), Delay(right)))
@@ -57,5 +59,10 @@ extension Combinator {
 	/// Constructs a literal combinator.
 	convenience init(literal: Alphabet) {
 		self.init(.Literal(box(literal)))
+	}
+	
+	/// Constructs a null parse.
+	convenience init(parsed: Set<Alphabet>) {
+		self.init(.Null(parsed))
 	}
 }
