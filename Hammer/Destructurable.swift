@@ -13,8 +13,8 @@ extension Combinator {
 	/// Destructures the receiver’s language one level of recursion deep.
 	///
 	/// I.e. this evaluates the children of the receiver (if the receiver is nonterminal), but does not evaluate their children.
-	func destructure() -> DestructuredLanguage<Alphabet, Combinator<Alphabet>> {
-		switch self.language {
+	func destructure(recur: Combinator<Alphabet> -> Combinator<Alphabet>) -> DestructuredLanguage<Alphabet, Recur> {
+		switch language {
 		case .Empty:
 			return .Empty
 			
@@ -25,16 +25,16 @@ extension Combinator {
 			return .Literal(x)
 		
 		case let .Alternation(x, y):
-			return .Alternation(x.forced.language, y.forced.language)
+			return .Alternation(recur(x).language, recur(y).language)
 			
 		case let .Concatenation(x, y):
-			return .Concatenation(x.forced.language, y.forced.language)
+			return .Concatenation(recur(x).language, recur(y).language)
 			
 		case let .Repetition(x):
-			return .Repetition(x.forced.language)
+			return .Repetition(recur(x).language)
 			
 		case let .Reduction(x, f):
-			return .Reduction(x.forced.language, f)
+			return .Reduction(recur(x).language, f)
 		}
 	}
 }

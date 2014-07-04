@@ -36,3 +36,8 @@ func == <Boxed : Equatable>(a: Box<Boxed>, b: Box<Boxed>) -> Bool {
 func hash<Boxed : Hashable>(box: Box<Boxed>) -> Int {
 	return box.value.hashValue
 }
+
+
+func toString<T>(box: Box<T>) -> String {
+	return toString(box.value)
+}

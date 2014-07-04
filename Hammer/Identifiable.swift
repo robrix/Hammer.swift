@@ -5,3 +5,21 @@ protocol Identifiable {
 	typealias Identifier : Hashable
 	var identity: Identifier { get }
 }
+
+
+/// Combinator conforms to Identifiable.
+extension Combinator : Identifiable {
+	var identity: ObjectIdentifier { return reflect(self).objectIdentifier! }
+}
+
+
+/// Character conforms to Identifiable.
+extension Character : Identifiable {
+	var identity: String { return String(self) }
+}
+
+
+/// String conforms to Identifiable.
+extension String : Identifiable {
+	var identity: String { return self }
+}

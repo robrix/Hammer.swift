@@ -4,7 +4,7 @@ func fixpoint<Parameter : Identifiable, Result> (initial: Result, body: (Paramet
 	return fixpoint(initial, { $0.identity }, body)
 }
 
-func fixpoint<Parameter : Hashable, Result> (initial: Result, body: ((Parameter, Parameter) -> Result, (Parameter, Parameter)) -> Result) -> (Parameter, Parameter) -> Result {
+func fixpoint<Parameter : Identifiable, Result> (initial: Result, body: ((Parameter, Parameter) -> Result, (Parameter, Parameter)) -> Result) -> (Parameter, Parameter) -> Result {
 	return fixpoint(initial, { HashablePair($0.0, $0.1) }, body)
 }
 
@@ -17,7 +17,7 @@ func fixpoint<Parameter : Hashable, Result> (initial: Result, body: ((Parameter,
 /// Initially adapted from the \c memoize function in WWDC2014 session 404 Advanced Swift.
 func fixpoint<Parameter, Result, Decorator : Hashable>(initial: Result, wrap: Parameter -> Decorator, body: (Parameter -> Result, Parameter) -> Result) -> Parameter -> Result {
 	var memo = Dictionary<Decorator, Result>()
-	var recursive: (Parameter -> Result)! = nil
+	var recursive: (Parameter -> Result)!
 	recursive = { parameter in
 		let key = wrap(parameter)
 		if let found = memo[key] { return found }
@@ -31,7 +31,7 @@ func fixpoint<Parameter, Result, Decorator : Hashable>(initial: Result, wrap: Pa
 
 
 /// A pair which distributes hashing and equality over its members. This is an implementation detail.
-struct HashablePair<T : Hashable, U : Hashable> {
+struct HashablePair<T : Identifiable, U : Identifiable> {
 	let left: T
 	let right: U
 	
@@ -50,12 +50,12 @@ func identify<T>(a: T) -> ObjectIdentifier? {
 
 /// Distribute equality over hashable pairs.
 func == <T, U> (a: HashablePair<T, U>, b: HashablePair<T, U>) -> Bool {
-	return identify(a.left)! == identify(b.left)! && identify(a.right)! == identify(b.right)!
+	return a.left.identity == b.left.identity && a.right.identity == b.right.identity
 }
 
 extension HashablePair : Hashable {
 	// This is a poor way to distribute hashing over a pair; it’s convenient, but it’s not a good implementation detail to rely upon or emulate.
 	var hashValue: Int {
-		return identify(left)!.hashValue ^ identify(right)!.hashValue
+		return left.identity.hashValue ^ right.identity.hashValue
 	}
 }

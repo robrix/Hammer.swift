@@ -11,12 +11,6 @@
 }
 
 
-/// Combinator conforms to Identifiable.
-extension Combinator : Identifiable {
-	var identity: ObjectIdentifier { return reflect(self).objectIdentifier! }
-}
-
-
 extension Combinator : Testable {
 	class func _performTests() {
 		let count: Combinator<String> -> Int = fixpoint(0) { recur, combinator in
@@ -40,7 +34,7 @@ extension Combinator : Testable {
 			return count
 		}
 		
-		let empty = Combinator<String>(Language.Empty)
+		let empty = Combinator<String>(.Empty)
 		assert(count(empty) == 1)
 		
 		let repetition = empty*
