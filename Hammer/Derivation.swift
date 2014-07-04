@@ -1,5 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+import Set
+
 /// Returns the derivative of \c combinator with respect to \c character.
 ///
 /// The derivative is a parser which behaves as tho it had already parsed \c character. I.e. if the original parser accepts \c character, then the new parser will start with a null reduction of \c character. Otherwise, it will be empty.
@@ -14,7 +16,7 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 			return Combinator(.Alternation(delay(recur(x, character)), delay(recur(y, character))))
 			
 		case let .Concatenation(x, y) where x.forced.nullable:
-			return recur(x, character) ++ y | recur(y, character)
+			return recur(x, character) ++ y | Combinator(parsed: parseForest(x)) ++ recur(y, character)
 		case let .Concatenation(x, y):
 			return recur(x, character) ++ y
 			
