@@ -30,3 +30,12 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 	}
 	return derive(combinator, character)
 }
+
+struct DerivingTests : Testable {
+	static func _performTests() {
+		let x = "x"
+		let xs = Combinator(literal: x)*
+		let xs1 = derive(xs, x).compact()
+		assert(xs1 == Combinator(parsed: [x]) ++ xs)
+	}
+}
