@@ -34,6 +34,14 @@ extension Combinator {
 	}
 }
 
+struct ParseForestTests : Testable {
+	static func _performTests() {
+		let parsedX = Combinator(parsed: ["x"])
+		let parsedY = Combinator(parsed: ["y"])
+		assert((parsedX | parsedY).parseForest == Set(["x", "y"]))
+	}
+}
+
 
 /// Returns the cartesian product of \c a and \c b.
 //func * <A : Sequence, B : Sequence> (a: A, b: B) -> FlattenMapSequenceView<A, MapSequenceView<B, (A.GeneratorType.Element, B.GeneratorType.Element)>> {

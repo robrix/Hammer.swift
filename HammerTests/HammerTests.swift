@@ -14,6 +14,10 @@ class Tests: XCTestCase {
 		ParsingTests._performTests()
 	}
 	
+	func testParseForest() {
+		ParseForestTests._performTests()
+	}
+	
 	func testCompaction() {
 		CompactionTests._performTests()
 	}
