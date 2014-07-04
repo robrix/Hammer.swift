@@ -15,5 +15,9 @@ struct ParsingTests : Testable {
 	static func _performTests() {
 		let xs = Combinator(literal: "x")*
 		assert(xs.parse([]).count == 0)
+//		assert(xs.parse([""]).count == 0)
+//		let parsedX = xs.parse(["x"])
+//		println(parsedX)
+//		assert(parsedX.count == 1)
 	}
 }
