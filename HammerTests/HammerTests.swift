@@ -9,4 +9,8 @@ class Tests: XCTestCase {
 	func testParsing() {
 		ParsingTests._performTests()
 	}
+	
+	func testCompaction() {
+		CompactionTests._performTests()
+	}
 }

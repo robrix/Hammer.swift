@@ -71,3 +71,21 @@ extension Combinator {
 		}
 	}
 }
+
+struct CompactionTests : Testable {
+	static func _performTests() {
+		let literal = Combinator(literal: "x")
+		assert(literal == literal)
+		let empty = Combinator<String>(.Empty)
+		
+		let literalConcatEmpty = (literal ++ empty).compact()
+		assert(literalConcatEmpty == empty)
+		let emptyConcatLiteral = (empty ++ literal).compact()
+		assert(emptyConcatLiteral == empty)
+		
+		let literalAltEmpty = (literal | empty).compact()
+		assert(literalAltEmpty == literal)
+		let emptyAltLiteral = (empty | literal).compact()
+		assert(emptyAltLiteral == literal)
+	}
+}
