@@ -14,7 +14,7 @@
 		D439CF9319572912005BD842 /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9219572912005BD842 /* Printable.swift */; };
 		D439CF9719572ABC005BD842 /* Construction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9619572ABC005BD842 /* Construction.swift */; };
 		D439CFC519578250005BD842 /* Fixpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CFC419578250005BD842 /* Fixpoint.swift */; };
-		D456262C19679FE90052267E /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456262B19679FE90052267E /* BinaryTree.swift */; };
+		D4562630196863880052267E /* ParseTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456262F196863880052267E /* ParseTree.swift */; };
 		D4575576195E03B0001384D9 /* Combinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575575195E03B0001384D9 /* Combinator.swift */; };
 		D4575578195E122A001384D9 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575577195E122A001384D9 /* Equatable.swift */; };
 		D457557A195E1269001384D9 /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575579195E1269001384D9 /* Hashable.swift */; };
@@ -95,7 +95,7 @@
 		D439CF9219572912005BD842 /* Printable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		D439CF9619572ABC005BD842 /* Construction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Construction.swift; sourceTree = "<group>"; };
 		D439CFC419578250005BD842 /* Fixpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixpoint.swift; sourceTree = "<group>"; };
-		D456262B19679FE90052267E /* BinaryTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
+		D456262F196863880052267E /* ParseTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseTree.swift; sourceTree = "<group>"; };
 		D4575575195E03B0001384D9 /* Combinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combinator.swift; sourceTree = "<group>"; };
 		D4575577195E122A001384D9 /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		D4575579195E1269001384D9 /* Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 				D40D2665195EF2A200BC535B /* ParseForest.swift */,
 				D439CF9219572912005BD842 /* Printable.swift */,
 				D458F50F1964F0D9000ECDC4 /* Parsing.swift */,
-				D456262B19679FE90052267E /* BinaryTree.swift */,
+				D456262F196863880052267E /* ParseTree.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D456262C19679FE90052267E /* BinaryTree.swift in Sources */,
+				D4562630196863880052267E /* ParseTree.swift in Sources */,
 				D48201FF195CE0E20052CCF8 /* String.swift in Sources */,
 				D457557A195E1269001384D9 /* Hashable.swift in Sources */,
 				D457557E195E2D72001384D9 /* Derivation.swift in Sources */,
