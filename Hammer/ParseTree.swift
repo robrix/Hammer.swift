@@ -17,6 +17,30 @@ enum ParseTree<T : Hashable> {
 	
 	/// Represents an ambiguity in the parse tree.
 	case Choice(Set<ParseTree<T>>)
+	
+	init() {
+		self = .Nil
+	}
+	
+	init(leaf: T) {
+		self = .Leaf(box(leaf))
+	}
+	
+	init(left: ParseTree<T>, right: ParseTree<T>) {
+		self = .Branch(box(left), box(right))
+	}
+	
+	init<S : Sequence where S.GeneratorType.Element == ParseTree<T>>(_ trees: S) {
+		let set: Set<ParseTree<T>> = Set(trees)
+		switch set.count {
+		case 0:
+			self = .Nil
+		case 1:
+			self = set[]
+		default:
+			self = .Choice(set)
+		}
+	}
 }
 
 
