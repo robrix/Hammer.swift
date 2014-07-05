@@ -132,5 +132,34 @@ func +<T> (a: ParseTree<T>, b: ParseTree<T>) -> ParseTree<T> {
 }
 
 
+func toMap<T, U> (f: T -> () -> U) -> T -> U {
+	return { x in f(x)() }
+}
+
+func toMap<T, U> (f: @auto_closure () -> U) -> T -> U {
+	return { x in f() }
+}
+
+
+extension ParseTree {
+	var count: Int { return _count() }
+	func _count() -> Int {
+		switch self {
+			case .Nil:
+				return 0
+			
+			case .Leaf:
+				return 1
+			
+			case let .Branch(x, y):
+				return x.value.count + y.value.count
+			
+			case let .Choice(choices):
+				return reduce(map(choices, toMap(ParseTree._count)), 0, +)
+		}
+	}
+}
+
+
 // fixme: cons
 // fixme: cartesian product
