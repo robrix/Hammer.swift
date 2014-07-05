@@ -13,7 +13,7 @@ enum Language<Alphabet : Alphabet, Recur> {
 	/// A null language, i.e. a language which accepts the empty string.
 	///
 	/// Its parameter is a parse forest of recognized input.
-	case Null(Set<Alphabet>)
+	case Null(ParseTree<Alphabet>)
 	
 	/// A literal, i.e. matches the literal of type `Alphabet`.
 	case Literal(Box<Alphabet>)

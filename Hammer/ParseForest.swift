@@ -5,8 +5,8 @@ import Set
 
 extension Combinator {
 	/// Returns the parse forest of a combinator which is the result of parsing input.
-	var parseForest: Set<Alphabet> {
-		let parseForest: Combinator<Alphabet> -> Set<Alphabet> = fixpoint(Set()) { recur, combinator in
+	var parseForest: ParseTree<Alphabet> {
+		let parseForest: Combinator<Alphabet> -> ParseTree<Alphabet> = fixpoint(ParseTree.Choice([])) { recur, combinator in
 			switch combinator.language {
 			case let .Null(x):
 				return x
@@ -16,18 +16,17 @@ extension Combinator {
 				
 			case let .Concatenation(x, y):
 				// fixme: this needs to be the cartesian product of recur(x) and recur(y)
-				return Set()
+				return .Nil
 				
 			case let .Repetition(x):
-				// fixme: how does this even work? List() is not in Alphabet.
-				return Set(List())
+				return .Nil
 				
 			case let .Reduction(x, f):
 				// fixme: this needs to map recur(x) by f
 				return recur(x)
 				
 			default:
-				return Set()
+				return .Nil
 			}
 		}
 		return parseForest(self)
@@ -36,9 +35,9 @@ extension Combinator {
 
 struct ParseForestTests : Testable {
 	static func _performTests() {
-		let parsedX = Combinator(parsed: ["x"])
-		let parsedY = Combinator(parsed: ["y"])
-		assert((parsedX | parsedY).parseForest == Set(["x", "y"]))
+		let parsedX = Combinator(parsed: .Leaf(box("x")))
+		let parsedY = Combinator(parsed: .Leaf(box("y")))
+		assert((parsedX | parsedY).parseForest == .Choice([.Leaf(box("x")), .Leaf(box("y"))]))
 	}
 }
 

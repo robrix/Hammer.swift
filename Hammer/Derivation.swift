@@ -10,7 +10,7 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 		let (combinator, character) = parameters
 		switch combinator.language {
 		case let .Literal(c) where c == character:
-			return Combinator(.Null([c]))
+			return Combinator(.Null(ParseTree(leaf: c)))
 			
 		case let .Alternation(x, y):
 			return Combinator(.Alternation(delay(recur(x, character)), delay(recur(y, character))))
@@ -38,7 +38,7 @@ struct DerivingTests : Testable {
 		let x = "x"
 		let xs = Combinator(literal: x)*
 		let xs1 = derive(xs, x).compact()
-		let parsed = Combinator(parsed: [x])
+		let parsed = Combinator(parsed: ParseTree(leaf: x))
 		assert(xs1 == parsed ++ xs)
 		let xs2 = derive(xs1, x).compact()
 		assert(xs2 == parsed ++ parsed ++ xs)

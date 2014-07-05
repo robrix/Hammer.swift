@@ -22,7 +22,7 @@ extension Combinator {
 				
 			/// Repetitions of empty are equivalent to parsing the empty string.
 			case .Repetition(.Empty):
-				return Combinator(.Null(Set(List())))
+				return Combinator(.Null(.Nil))
 				
 			/// Reductions of reductions compose.
 //			case let .Reduction(.Reduction(x, f), g):
