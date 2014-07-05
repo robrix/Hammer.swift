@@ -105,6 +105,7 @@ extension ParseTree : Printable {
 }
 
 
+/// Returns the union of \c a and \c b.
 func + <T> (a: ParseTree<T>, b: ParseTree<T>) -> ParseTree<T> {
 	switch (a, b) {
 	case let (x, .Nil):
