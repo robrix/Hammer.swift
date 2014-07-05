@@ -105,7 +105,7 @@ extension ParseTree : Printable {
 }
 
 
-func +<T> (a: ParseTree<T>, b: ParseTree<T>) -> ParseTree<T> {
+func + <T> (a: ParseTree<T>, b: ParseTree<T>) -> ParseTree<T> {
 	switch (a, b) {
 	case let (x, .Nil):
 		return x
