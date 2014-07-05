@@ -85,5 +85,25 @@ extension ParseTree : Hashable {
 }
 
 
+/// ParseTree conforms to Printable.
+extension ParseTree : Printable {
+	var description: String {
+		switch self {
+		case .Nil:
+			return "()"
+		
+		case let .Leaf(x):
+			return toString(x.value)
+			
+		case let .Branch(x, y):
+			return "(\(x.value.description) . \(y.value.description))"
+			
+		case let .Choice(x):
+			return x.description
+		}
+	}
+}
+
+
 // fixme: cons
 // fixme: cartesian product
