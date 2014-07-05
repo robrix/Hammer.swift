@@ -30,7 +30,7 @@ enum ParseTree<T : Hashable> {
 		self = .Branch(box(left), box(right))
 	}
 	
-	init<S : Sequence where S.GeneratorType.Element == ParseTree<T>>(_ trees: S) {
+	init<S : Sequence where S.GeneratorType.Element == ParseTree<T>>(trees: S) {
 		let set: Set<ParseTree<T>> = Set(trees)
 		switch set.count {
 		case 0:
