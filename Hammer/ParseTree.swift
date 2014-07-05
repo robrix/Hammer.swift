@@ -143,6 +143,7 @@ func toMap<T, U> (f: @auto_closure () -> U) -> T -> U {
 
 
 extension ParseTree {
+	/// Returns the receiver’s count.
 	var count: Int { return _count() }
 	func _count() -> Int {
 		switch self {
