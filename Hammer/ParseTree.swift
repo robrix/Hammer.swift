@@ -105,5 +105,32 @@ extension ParseTree : Printable {
 }
 
 
+func +<T> (a: ParseTree<T>, b: ParseTree<T>) -> ParseTree<T> {
+	switch (a, b) {
+	case let (x, .Nil):
+		return x
+	case let (.Nil, y):
+		return y
+	
+	case let (.Choice(x), .Choice(y)):
+		return ParseTree(trees: x + y)
+		
+	case let (.Choice(x), y):
+		let trees: Set<ParseTree<T>> = x + [y]
+		return ParseTree(trees: trees)
+		
+	case let (x, .Choice(y)):
+		let trees: Set<ParseTree<T>> = y + [x]
+		return ParseTree(trees: trees)
+		
+	case let (x, y):
+		return ParseTree(trees: [x] + [y])
+		
+	default:
+		return .Nil
+	}
+}
+
+
 // fixme: cons
 // fixme: cartesian product
