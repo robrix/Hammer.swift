@@ -8,8 +8,8 @@ enum BinaryTree<T : Hashable> {
 }
 
 
-/// Equality for binary trees.
-func == <T : Hashable> (a: BinaryTree<T>, b: BinaryTree<T>) -> Bool {
+/// BinaryTree conforms to Equatable.
+func == <T> (a: BinaryTree<T>, b: BinaryTree<T>) -> Bool {
 	switch (a, b) {
 	case (.Nil, .Nil):
 		return true
