@@ -8,13 +8,11 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 /// A lazily-provided value, convertible to its underlying type.
 @final class Delay<T> {
 	var _thunk: (() -> T)?
-	var _value: Box<T?>
 	
 	@lazy var value: T = { self._thunk!() }()
 	
 	init(_ thunk: () -> T) {
 		_thunk = thunk
-		_value = box(nil)
 	}
 	
 	@conversion func __conversion() -> T {
