@@ -19,11 +19,7 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 	}
 	
 	@conversion func __conversion() -> T {
-		if let thunk = _thunk {
-			_value = box(thunk())
-			_thunk = nil
-		}
-		return _value!
+		return value
 	}
 }
 
