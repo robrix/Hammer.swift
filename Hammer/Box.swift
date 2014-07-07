@@ -8,13 +8,11 @@ func box<T>(value: T) -> Box<T> {
 }
 
 /// A box for a value which would otherwise cause compiler issues: recursive enum/struct definitions, and classes with non-fixed layout.
-@final class Box<T> {
-	let _value: [T]
-	
-	var value: T { return _value[0] }
+class Box<T> {
+	let value: T
 	
 	init(_ value: T) {
-		_value = [ value ]
+		self.value = value
 	}
 	
 	@conversion func __conversion() -> T {
