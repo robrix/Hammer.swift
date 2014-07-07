@@ -9,7 +9,11 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 @final class Delay<T> {
 	var _thunk: (() -> T)?
 	
-	@lazy var value: T = { self._thunk!() }()
+	@lazy var value: T = {
+		let value = self._thunk!()
+		self._thunk = nil
+		return value
+	}()
 	
 	init(_ thunk: () -> T) {
 		_thunk = thunk
