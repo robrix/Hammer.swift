@@ -17,7 +17,7 @@ extension Combinator {
 				return Combinator(.Alternation(delay(recur(x, character)), delay(recur(y, character))))
 				
 			case let .Concatenation(x, y) where x.value.nullable:
-				return recur(x, character) ++ y | Combinator(parsed: value) ++ recur(y, character)
+				return recur(x, character) ++ y | Combinator(parsed: x.value.parseForest) ++ recur(y, character)
 			case let .Concatenation(x, y):
 				return recur(x, character) ++ y
 				
