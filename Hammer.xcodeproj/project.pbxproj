@@ -151,7 +151,6 @@
 				D40D2665195EF2A200BC535B /* ParseForest.swift */,
 				D439CF9219572912005BD842 /* Printable.swift */,
 				D458F50F1964F0D9000ECDC4 /* Parsing.swift */,
-				D456262F196863880052267E /* ParseTree.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -181,6 +180,7 @@
 				D4B9F770193E740900AC6B45 /* Language.swift */,
 				D4575575195E03B0001384D9 /* Combinator.swift */,
 				D457557B195E15A9001384D9 /* Alphabet.swift */,
+				D456262F196863880052267E /* ParseTree.swift */,
 				D439CF91195728F7005BD842 /* Operations */,
 				D4B9F757193E73C400AC6B45 /* Supporting Files */,
 			);
