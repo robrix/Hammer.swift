@@ -15,8 +15,8 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 		case let .Alternation(x, y):
 			return Combinator(.Alternation(delay(recur(x, character)), delay(recur(y, character))))
 			
-		case let .Concatenation(x, y) where x.forced.nullable:
-			return recur(x, character) ++ y | Combinator(parsed: x.forced.parseForest) ++ recur(y, character)
+		case let .Concatenation(x, y) where x.value.nullable:
+			return recur(x, character) ++ y | Combinator(parsed: x.value.parseForest) ++ recur(y, character)
 		case let .Concatenation(x, y):
 			return recur(x, character) ++ y
 			
