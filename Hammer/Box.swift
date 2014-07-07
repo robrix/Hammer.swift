@@ -7,7 +7,7 @@ func box<T>(value: T) -> Box<T> {
 	return Box(value)
 }
 
-/// A box for a value which would otherwise cause compiler issues: recursive enum/struct definitions, and classes with non-fixed layout.
+/// A box for a value which would otherwise because you can’t have recursive enum/struct definitions. OnHeap could be used if we could produce an ObjectIdentifier or otherwise make it Identifiable.
 class Box<T> {
 	let value: T
 	
