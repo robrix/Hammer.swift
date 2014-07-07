@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D4008310195A5E0E00E7D603 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D400830F195A5E0E00E7D603 /* Test.swift */; };
 		D40AD675196B3608003185B8 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40AD674196B3608003185B8 /* Generator.swift */; };
+		D40AD67B196B4BA6003185B8 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40AD67A196B4BA6003185B8 /* Sequence.swift */; };
 		D40D2666195EF2A200BC535B /* ParseForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D2665195EF2A200BC535B /* ParseForest.swift */; };
 		D40D2672195F116F00BC535B /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D266F195F116300BC535B /* Set.framework */; };
 		D40D26A41960448B00BC535B /* List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D26A11960448000BC535B /* List.framework */; };
@@ -91,6 +92,7 @@
 /* Begin PBXFileReference section */
 		D400830F195A5E0E00E7D603 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		D40AD674196B3608003185B8 /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		D40AD67A196B4BA6003185B8 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		D40D2665195EF2A200BC535B /* ParseForest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseForest.swift; sourceTree = "<group>"; };
 		D40D2669195F116300BC535B /* Set.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Set.xcodeproj; path = External/Set/Set.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D40D269B1960448000BC535B /* List.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = List.xcodeproj; path = External/List/List.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -223,6 +225,7 @@
 				D48201FE195CE0E20052CCF8 /* String.swift */,
 				D400830F195A5E0E00E7D603 /* Test.swift */,
 				D40AD674196B3608003185B8 /* Generator.swift */,
+				D40AD67A196B4BA6003185B8 /* Sequence.swift */,
 				D4B9F758193E73C400AC6B45 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -398,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4562630196863880052267E /* ParseTree.swift in Sources */,
+				D40AD67B196B4BA6003185B8 /* Sequence.swift in Sources */,
 				D48201FF195CE0E20052CCF8 /* String.swift in Sources */,
 				D457557A195E1269001384D9 /* Hashable.swift in Sources */,
 				D457557E195E2D72001384D9 /* Derivation.swift in Sources */,
