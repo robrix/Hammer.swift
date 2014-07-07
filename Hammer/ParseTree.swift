@@ -184,7 +184,7 @@ extension ParseTree {
 func * <T> (a: ParseTree<T>, b: ParseTree<T>) -> ParseTree<T> {
 	let sequences = map(a.alternatives) { first in
 		map(b.alternatives) { second in
-			ParseTree<T>.Branch(box(first), box(second))
+			ParseTree.Branch(box(first), box(second))
 		}
 	}
 	return ParseTree(trees: reduce(sequences, SequenceOf { EmptyGenerator() }) { into, each in
