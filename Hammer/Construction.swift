@@ -65,4 +65,8 @@ extension Combinator {
 	convenience init(parsed: ParseTree<Alphabet>) {
 		self.init(.Null(parsed))
 	}
+	
+	class var empty: Recur {
+		return Combinator(.Empty)
+	}
 }
