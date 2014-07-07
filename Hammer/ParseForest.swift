@@ -1,12 +1,11 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-import List
 import Set
 
 extension Combinator {
 	/// Returns the parse forest of a combinator which is the result of parsing input.
-	var parseForest: Set<Alphabet> {
-		let parseForest: Combinator<Alphabet> -> Set<Alphabet> = fixpoint(Set()) { recur, combinator in
+	var parseForest: ParseTree<Alphabet> {
+		let parseForest: Combinator<Alphabet> -> ParseTree<Alphabet> = fixpoint(ParseTree.Choice([])) { recur, combinator in
 			switch combinator.language {
 			case let .Null(x):
 				return x
@@ -15,19 +14,17 @@ extension Combinator {
 				return recur(x) + recur(y)
 				
 			case let .Concatenation(x, y):
-				// fixme: this needs to be the cartesian product of recur(x) and recur(y)
-				return Set()
+				return recur(x) * recur(y)
 				
 			case let .Repetition(x):
-				// fixme: how does this even work? List() is not in Alphabet.
-				return Set(List())
+				return .Nil
 				
 			case let .Reduction(x, f):
 				// fixme: this needs to map recur(x) by f
 				return recur(x)
 				
 			default:
-				return Set()
+				return .Nil
 			}
 		}
 		return parseForest(self)
@@ -36,16 +33,11 @@ extension Combinator {
 
 struct ParseForestTests : Testable {
 	static func _performTests() {
-		let parsedX = Combinator(parsed: ["x"])
-		let parsedY = Combinator(parsed: ["y"])
-		assert((parsedX | parsedY).parseForest == Set(["x", "y"]))
+		let (x, y) = (box("x"), box("y"))
+		let (xTree, yTree) = (ParseTree.Leaf(x), ParseTree.Leaf(y))
+		let parsedX = Combinator(parsed: xTree)
+		let parsedY = Combinator(parsed: yTree)
+		assert((parsedX | parsedY).parseForest == .Choice([xTree, yTree]))
+		assert((parsedX ++ parsedY).parseForest == .Branch(box(xTree), box(yTree)))
 	}
 }
-
-
-/// Returns the cartesian product of \c a and \c b.
-//func * <A : Sequence, B : Sequence> (a: A, b: B) -> FlattenMapSequenceView<A, MapSequenceView<B, (A.GeneratorType.Element, B.GeneratorType.Element)>> {
-//	return flattenMap(a) { first in
-//		return map(b) { second in (first, second) }
-//	}
-//}

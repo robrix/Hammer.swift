@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D4008310195A5E0E00E7D603 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D400830F195A5E0E00E7D603 /* Test.swift */; };
+		D40AD675196B3608003185B8 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40AD674196B3608003185B8 /* Generator.swift */; };
+		D40AD67B196B4BA6003185B8 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40AD67A196B4BA6003185B8 /* Sequence.swift */; };
 		D40D2666195EF2A200BC535B /* ParseForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D2665195EF2A200BC535B /* ParseForest.swift */; };
 		D40D2672195F116F00BC535B /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D266F195F116300BC535B /* Set.framework */; };
-		D40D26A41960448B00BC535B /* List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D26A11960448000BC535B /* List.framework */; };
 		D439CF9319572912005BD842 /* Printable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9219572912005BD842 /* Printable.swift */; };
 		D439CF9719572ABC005BD842 /* Construction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CF9619572ABC005BD842 /* Construction.swift */; };
 		D439CFC519578250005BD842 /* Fixpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439CFC419578250005BD842 /* Fixpoint.swift */; };
+		D4562630196863880052267E /* ParseTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456262F196863880052267E /* ParseTree.swift */; };
 		D4575576195E03B0001384D9 /* Combinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575575195E03B0001384D9 /* Combinator.swift */; };
 		D4575578195E122A001384D9 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575577195E122A001384D9 /* Equatable.swift */; };
 		D457557A195E1269001384D9 /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4575579195E1269001384D9 /* Hashable.swift */; };
@@ -49,20 +51,6 @@
 			remoteGlobalIDString = D439CFB119575720005BD842;
 			remoteInfo = SetTests;
 		};
-		D40D26A01960448000BC535B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D40D269B1960448000BC535B /* List.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D40D267D195F198500BC535B;
-			remoteInfo = List;
-		};
-		D40D26A21960448000BC535B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D40D269B1960448000BC535B /* List.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D40D2688195F198500BC535B;
-			remoteInfo = ListTests;
-		};
 		D4B9F761193E73C400AC6B45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4B9F74B193E73C300AC6B45 /* Project object */;
@@ -88,12 +76,14 @@
 
 /* Begin PBXFileReference section */
 		D400830F195A5E0E00E7D603 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		D40AD674196B3608003185B8 /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		D40AD67A196B4BA6003185B8 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		D40D2665195EF2A200BC535B /* ParseForest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseForest.swift; sourceTree = "<group>"; };
 		D40D2669195F116300BC535B /* Set.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Set.xcodeproj; path = External/Set/Set.xcodeproj; sourceTree = SOURCE_ROOT; };
-		D40D269B1960448000BC535B /* List.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = List.xcodeproj; path = External/List/List.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D439CF9219572912005BD842 /* Printable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printable.swift; sourceTree = "<group>"; };
 		D439CF9619572ABC005BD842 /* Construction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Construction.swift; sourceTree = "<group>"; };
 		D439CFC419578250005BD842 /* Fixpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixpoint.swift; sourceTree = "<group>"; };
+		D456262F196863880052267E /* ParseTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseTree.swift; sourceTree = "<group>"; };
 		D4575575195E03B0001384D9 /* Combinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combinator.swift; sourceTree = "<group>"; };
 		D4575577195E122A001384D9 /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		D4575579195E1269001384D9 /* Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
@@ -123,7 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D40D26A41960448B00BC535B /* List.framework in Frameworks */,
 				D40D2672195F116F00BC535B /* Set.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,15 +137,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D40D269C1960448000BC535B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D40D26A11960448000BC535B /* List.framework */,
-				D40D26A31960448000BC535B /* ListTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D439CF91195728F7005BD842 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +151,7 @@
 				D40D2665195EF2A200BC535B /* ParseForest.swift */,
 				D439CF9219572912005BD842 /* Printable.swift */,
 				D458F50F1964F0D9000ECDC4 /* Parsing.swift */,
+				D456262F196863880052267E /* ParseTree.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -209,7 +190,6 @@
 		D4B9F757193E73C400AC6B45 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D40D269B1960448000BC535B /* List.xcodeproj */,
 				D40D2669195F116300BC535B /* Set.xcodeproj */,
 				D4C231041956013E001DE39D /* Box.swift */,
 				D4B47C7D1960CF0200288643 /* Compose.swift */,
@@ -217,6 +197,8 @@
 				D439CFC419578250005BD842 /* Fixpoint.swift */,
 				D48201FE195CE0E20052CCF8 /* String.swift */,
 				D400830F195A5E0E00E7D603 /* Test.swift */,
+				D40AD674196B3608003185B8 /* Generator.swift */,
+				D40AD67A196B4BA6003185B8 /* Sequence.swift */,
 				D4B9F758193E73C400AC6B45 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -322,10 +304,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D40D269C1960448000BC535B /* Products */;
-					ProjectRef = D40D269B1960448000BC535B /* List.xcodeproj */;
-				},
-				{
 					ProductGroup = D40D266A195F116300BC535B /* Products */;
 					ProjectRef = D40D2669195F116300BC535B /* Set.xcodeproj */;
 				},
@@ -353,20 +331,6 @@
 			remoteRef = D40D2670195F116300BC535B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D40D26A11960448000BC535B /* List.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = List.framework;
-			remoteRef = D40D26A01960448000BC535B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D40D26A31960448000BC535B /* ListTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ListTests.xctest;
-			remoteRef = D40D26A21960448000BC535B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -391,6 +355,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4562630196863880052267E /* ParseTree.swift in Sources */,
+				D40AD67B196B4BA6003185B8 /* Sequence.swift in Sources */,
 				D48201FF195CE0E20052CCF8 /* String.swift in Sources */,
 				D457557A195E1269001384D9 /* Hashable.swift in Sources */,
 				D457557E195E2D72001384D9 /* Derivation.swift in Sources */,
@@ -400,6 +366,7 @@
 				D439CFC519578250005BD842 /* Fixpoint.swift in Sources */,
 				D4575578195E122A001384D9 /* Equatable.swift in Sources */,
 				D4B47C7E1960CF0200288643 /* Compose.swift in Sources */,
+				D40AD675196B3608003185B8 /* Generator.swift in Sources */,
 				D4E2B1751962587F0079D2F3 /* Destructurable.swift in Sources */,
 				D4B47C781960A73700288643 /* Compaction.swift in Sources */,
 				D4008310195A5E0E00E7D603 /* Test.swift in Sources */,

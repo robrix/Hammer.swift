@@ -1,6 +1,5 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-import List
 import Set
 
 extension Combinator {
@@ -18,11 +17,11 @@ extension Combinator {
 				
 			/// Concatenations with Empty are equivalent to Empty.
 			case .Concatenation(.Empty, _), .Concatenation(_, .Empty):
-				return Combinator(.Empty)
+				return Combinator.empty
 				
 			/// Repetitions of empty are equivalent to parsing the empty string.
 			case .Repetition(.Empty):
-				return Combinator(.Null(Set(List())))
+				return Combinator(parsed: .Nil)
 				
 			/// Reductions of reductions compose.
 //			case let .Reduction(.Reduction(x, f), g):

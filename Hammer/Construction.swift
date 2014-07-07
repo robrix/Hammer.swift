@@ -62,7 +62,11 @@ extension Combinator {
 	}
 	
 	/// Constructs a null parse.
-	convenience init(parsed: Set<Alphabet>) {
+	convenience init(parsed: ParseTree<Alphabet>) {
 		self.init(.Null(parsed))
+	}
+	
+	class var empty: Recur {
+		return Combinator(.Empty)
 	}
 }

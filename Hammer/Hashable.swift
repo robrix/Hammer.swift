@@ -17,7 +17,7 @@ func hash<Alphabet : Alphabet>(combinator: Combinator<Alphabet>) -> Int {
 			return 0
 			
 		case let .Null(parses):
-			return parses.reduce(parses.count) { hash, each in hash ^ each.hashValue }
+			return parses.hashValue
 			
 			
 		case let .Literal(c):
