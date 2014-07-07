@@ -15,8 +15,7 @@ extension Combinator {
 				return recur(x) + recur(y)
 				
 			case let .Concatenation(x, y):
-				// fixme: this needs to be the cartesian product of recur(x) and recur(y)
-				return .Nil
+				return recur(x) * recur(y)
 				
 			case let .Repetition(x):
 				return .Nil
@@ -35,16 +34,11 @@ extension Combinator {
 
 struct ParseForestTests : Testable {
 	static func _performTests() {
-		let parsedX = Combinator(parsed: .Leaf(box("x")))
-		let parsedY = Combinator(parsed: .Leaf(box("y")))
-		assert((parsedX | parsedY).parseForest == .Choice([.Leaf(box("x")), .Leaf(box("y"))]))
+		let (x, y) = (box("x"), box("y"))
+		let (xTree, yTree) = (ParseTree.Leaf(x), ParseTree.Leaf(y))
+		let parsedX = Combinator(parsed: xTree)
+		let parsedY = Combinator(parsed: yTree)
+		assert((parsedX | parsedY).parseForest == .Choice([xTree, yTree]))
+		assert((parsedX ++ parsedY).parseForest == .Branch(box(xTree), box(yTree)))
 	}
 }
-
-
-/// Returns the cartesian product of \c a and \c b.
-//func * <A : Sequence, B : Sequence> (a: A, b: B) -> FlattenMapSequenceView<A, MapSequenceView<B, (A.GeneratorType.Element, B.GeneratorType.Element)>> {
-//	return flattenMap(a) { first in
-//		return map(b) { second in (first, second) }
-//	}
-//}
