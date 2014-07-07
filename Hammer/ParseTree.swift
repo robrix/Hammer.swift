@@ -180,5 +180,17 @@ extension ParseTree {
 }
 
 
+/// Returns the Cartesian product of \c a and \c b.
+func * <T> (a: ParseTree<T>, b: ParseTree<T>) -> ParseTree<T> {
+	let sequences = map(a.alternatives) { first in
+		map(b.alternatives) { second in
+			ParseTree<T>.Branch(box(first), box(second))
+		}
+	}
+	return ParseTree(trees: reduce(sequences, SequenceOf { EmptyGenerator() }) { into, each in
+		into ++ each
+	})
+}
+
+
 // fixme: cons
-// fixme: cartesian product
