@@ -163,5 +163,22 @@ extension ParseTree {
 }
 
 
+extension ParseTree {
+	/// Returns
+	var alternatives: SequenceOf<ParseTree<T>> {
+		switch self {
+		case let .Choice(choices):
+			return SequenceOf { choices.generate() }
+			
+		case .Nil:
+			return SequenceOf { EmptyGenerator() }
+			
+		default:
+			return SequenceOf { GeneratorOfOne(self) }
+		}
+	}
+}
+
+
 // fixme: cons
 // fixme: cartesian product
