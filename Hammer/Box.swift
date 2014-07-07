@@ -9,7 +9,7 @@ func box<T>(value: T) -> Box<T> {
 
 /// A box for a value which would otherwise cause compiler issues: recursive enum/struct definitions, and classes with non-fixed layout.
 @final class Box<T> {
-	let _value: T[]
+	let _value: [T]
 	
 	var value: T { return _value[0] }
 	
