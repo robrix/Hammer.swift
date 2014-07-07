@@ -33,8 +33,8 @@ extension Combinator {
 
 struct ParseForestTests : Testable {
 	static func _performTests() {
-		let (x, y) = (box("x"), box("y"))
-		let (xTree, yTree) = (ParseTree.Leaf(x), ParseTree.Leaf(y))
+		let (x, y) = ("x", "y")
+		let (xTree, yTree) = (ParseTree(leaf: x), ParseTree(leaf: y))
 		let parsedX = Combinator(parsed: xTree)
 		let parsedY = Combinator(parsed: yTree)
 		assert((parsedX | parsedY).parseForest == .Choice([xTree, yTree]))
