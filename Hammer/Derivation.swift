@@ -11,13 +11,13 @@ extension Combinator {
 			let (combinator, character) = parameters
 			switch combinator.language {
 			case let .Literal(c) where c == character:
-				return Combinator(.Null(ParseTree(leaf: c)))
+				return Combinator(parsed: ParseTree(leaf: c))
 				
 			case let .Alternation(x, y):
-				return Combinator(.Alternation(delay(recur(x, character)), delay(recur(y, character))))
+				return recur(x, character) | recur(y, character)
 				
-			case let .Concatenation(x, y) where x.forced.nullable:
-				return recur(x, character) ++ y | Combinator(parsed: x.forced.parseForest) ++ recur(y, character)
+			case let .Concatenation(x, y) where x.value.nullable:
+				return recur(x, character) ++ y | Combinator(parsed: x.value.parseForest) ++ recur(y, character)
 			case let .Concatenation(x, y):
 				return recur(x, character) ++ y
 				
