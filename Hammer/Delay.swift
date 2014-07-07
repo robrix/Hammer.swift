@@ -5,7 +5,7 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 	return Delay(value)
 }
 
-/// A lazily-provided value, convertible to its underlying type.
+/// A lazily-evaluated value, convertible to its underlying type.
 @final class Delay<T> {
 	var _thunk: (() -> T)?
 	
