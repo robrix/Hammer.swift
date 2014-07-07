@@ -1,7 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-/// Returns whether or not the receiver can parse the empty string.
 extension Combinator {
+	/// Returns whether or not the receiver can parse the empty string.
 	var nullable: Bool {
 		let nullable: Combinator<Alphabet> -> Bool = fixpoint(false) { recur, combinator in
 			switch combinator.language {
