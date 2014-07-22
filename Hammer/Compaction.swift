@@ -22,11 +22,13 @@ extension Combinator {
 			/// Repetitions of empty are equivalent to parsing the empty string.
 			case .Repetition(.Empty):
 				return Combinator(parsed: .Nil)
+			case let .Repetition(x):
+				return Combinator(x)*
 				
 			/// Reductions of reductions compose.
 //			case let .Reduction(.Reduction(x, f), g):
-//				let composed = compose(g, f)
-//				return Combinator(.Reduction(x, composed))
+//				return Combinator(.x --> compose(g, f))
+				
 			default:
 				return combinator
 			}
@@ -35,8 +37,8 @@ extension Combinator {
 	}
 }
 
-struct CompactionTests : Testable {
-	static func _performTests() {
+public struct CompactionTests : Testable {
+	public static func _performTests() {
 		let literal = Combinator(literal: "x")
 		assert(literal == literal)
 		let empty = Combinator<String>(.Empty)

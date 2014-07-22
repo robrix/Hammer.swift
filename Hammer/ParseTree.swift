@@ -163,6 +163,11 @@ extension ParseTree {
 }
 
 
+extension EmptyGenerator {
+	init() {}
+}
+
+
 extension ParseTree {
 	/// Returns
 	var alternatives: SequenceOf<ParseTree<T>> {

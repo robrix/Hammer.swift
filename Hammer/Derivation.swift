@@ -17,7 +17,8 @@ extension Combinator {
 				return recur(x, character) | recur(y, character)
 				
 			case let .Concatenation(x, y) where x.value.nullable:
-				return recur(x, character) ++ y | Combinator(parsed: x.value.parseForest) ++ recur(y, character)
+				return recur(x, character) ++ y
+					| Combinator(parsed: x.value.parseForest) ++ recur(y, character)
 			case let .Concatenation(x, y):
 				return recur(x, character) ++ y
 				
@@ -35,8 +36,8 @@ extension Combinator {
 	}
 }
 
-struct DerivingTests : Testable {
-	static func _performTests() {
+public struct DerivingTests : Testable {
+	public static func _performTests() {
 		let x = "x"
 		let xs = Combinator(literal: x)*
 		let xs1 = xs.derive(x).compact()

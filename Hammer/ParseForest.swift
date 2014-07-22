@@ -5,7 +5,7 @@ import Set
 extension Combinator {
 	/// Returns the parse forest of a combinator which is the result of parsing input.
 	var parseForest: ParseTree<Alphabet> {
-		let parseForest: Combinator<Alphabet> -> ParseTree<Alphabet> = fixpoint(ParseTree.Choice([])) { recur, combinator in
+		let parseForest: Combinator<Alphabet> -> ParseTree<Alphabet> = fixpoint(ParseTree.Nil) { recur, combinator in
 			switch combinator.language {
 			case let .Null(x):
 				return x
@@ -31,8 +31,8 @@ extension Combinator {
 	}
 }
 
-struct ParseForestTests : Testable {
-	static func _performTests() {
+public struct ParseForestTests : Testable {
+	public static func _performTests() {
 		let (x, y) = ("x", "y")
 		let (xTree, yTree) = (ParseTree(leaf: x), ParseTree(leaf: y))
 		let parsedX = Combinator(parsed: xTree)
