@@ -27,8 +27,8 @@ extension Combinator {
 				
 			/// Reductions of reductions compose.
 //			case let .Reduction(.Reduction(x, f), g):
-//				let composed = compose(g, f)
-//				return Combinator(.Reduction(x, composed))
+//				return Combinator(.x --> compose(g, f))
+				
 			default:
 				return combinator
 			}
