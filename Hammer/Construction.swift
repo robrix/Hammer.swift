@@ -12,7 +12,7 @@ func | <Alphabet : Alphabet> (left: @auto_closure () -> Combinator<Alphabet>, ri
 operator infix ++ { associativity right precedence 145 }
 
 /// Constructs the concatenation of \c first and \c second.
-@infix func ++ <Alphabet : Alphabet> (first: @auto_closure () -> Combinator<Alphabet>, second: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
+func ++ <Alphabet : Alphabet> (first: @auto_closure () -> Combinator<Alphabet>, second: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
 	return Combinator(Language.Concatenation(Delay(first), Delay(second)))
 }
 
@@ -50,7 +50,7 @@ operator infix --> {}
 /// 
 /// \code
 ///     language --> { $0 }
-@infix func --> <Alphabet : Alphabet> (language: @auto_closure () -> Combinator<Alphabet>, f: Alphabet -> Any) -> Combinator<Alphabet> {
+func --> <Alphabet : Alphabet> (language: @auto_closure () -> Combinator<Alphabet>, f: Alphabet -> Any) -> Combinator<Alphabet> {
 	return Combinator(Language.Reduction(Delay(language), f))
 }
 
