@@ -19,7 +19,7 @@ final class Delay<T> {
 		_thunk = thunk
 	}
 	
-	@conversion func __conversion() -> T {
+	func __conversion() -> T {
 		return value
 	}
 }

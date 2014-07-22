@@ -15,7 +15,7 @@ class Box<T> {
 		self.value = value
 	}
 	
-	@conversion func __conversion() -> T {
+	func __conversion() -> T {
 		return value
 	}
 }
