@@ -36,8 +36,8 @@ extension Combinator {
 	}
 }
 
-struct DerivingTests : Testable {
-	static func _performTests() {
+public struct DerivingTests : Testable {
+	public static func _performTests() {
 		let x = "x"
 		let xs = Combinator(literal: x)*
 		let xs1 = xs.derive(x).compact()
