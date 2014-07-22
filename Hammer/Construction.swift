@@ -3,8 +3,8 @@
 import Set
 
 /// Constructs the alternation of \c left and \c right.
-@infix func | <Alphabet : Alphabet> (left: @auto_closure () -> Combinator<Alphabet>, right: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
-	return Combinator(Language.Alternation(Delay(left), Delay(right)))
+func | <Alphabet : Alphabet> (left: @auto_closure () -> Combinator<Alphabet>, right: @auto_closure () -> Combinator<Alphabet>) -> Combinator<Alphabet> {
+	return Combinator(.Alternation(Delay(left), Delay(right)))
 }
 
 
