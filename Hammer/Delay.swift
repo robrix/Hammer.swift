@@ -6,7 +6,7 @@ func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
 }
 
 /// A lazily-evaluated value, convertible to its underlying type.
-@final class Delay<T> {
+final class Delay<T> {
 	var _thunk: (() -> T)?
 	
 	@lazy var value: T = {
