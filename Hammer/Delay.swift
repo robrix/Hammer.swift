@@ -18,22 +18,18 @@ final class Delay<T> {
 	init(_ thunk: () -> T) {
 		_thunk = thunk
 	}
-	
-	func __conversion() -> T {
-		return value
-	}
 }
 
 
 func == <T : Equatable> (left: Delay<T>, right: Delay<T>) -> Bool {
-	return ((left as T) == (right as T))
+	return left.value == right.value
 }
 
 func == <T : Equatable> (left: Delay<T>, right: T) -> Bool {
-	return (left as T) == right
+	return left.value == right
 }
 
 
 func hash<Delayed : Hashable>(delay: Delay<Delayed>) -> Int {
-	return (delay as Delayed).hashValue
+	return delay.value.hashValue
 }

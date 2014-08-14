@@ -25,16 +25,16 @@ extension Combinator {
 			return .Literal(x)
 		
 		case let .Alternation(x, y):
-			return .Alternation(recur(x).language, recur(y).language)
+			return .Alternation(recur(x.value).language, recur(y.value).language)
 			
 		case let .Concatenation(x, y):
-			return .Concatenation(recur(x).language, recur(y).language)
+			return .Concatenation(recur(x.value).language, recur(y.value).language)
 			
 		case let .Repetition(x):
-			return .Repetition(recur(x).language)
+			return .Repetition(recur(x.value).language)
 			
 		case let .Reduction(x, f):
-			return .Reduction(recur(x).language, f)
+			return .Reduction(recur(x.value).language, f)
 		}
 	}
 }

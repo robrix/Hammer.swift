@@ -18,22 +18,22 @@ extension Combinator : Printable {
 				
 				
 			case let .Alternation(left, right):
-				return "(\(recur(left)) ∪ \(recur(right)))"
+				return "(\(recur(left.value)) ∪ \(recur(right.value)))"
 				
 				
 			case let .Concatenation(first, second) where first == second:
-				return "\(recur(first))+"
+				return "\(recur(first.value))+"
 				
 			case let .Concatenation(first, second):
-				return "(\(recur(first)) ✕ \(recur(second)))"
+				return "(\(recur(first.value)) ✕ \(recur(second.value)))"
 				
 				
 			case let .Repetition(language):
-				return "\(recur(language))*"
+				return "\(recur(language.value))*"
 				
 				
 			case let .Reduction(language, _):
-				return "\(recur(language)) → 𝑓"
+				return "\(recur(language.value)) → 𝑓"
 			}
 		}
 		return describe(self)

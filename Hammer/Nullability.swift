@@ -9,16 +9,16 @@ extension Combinator {
 				return true
 				
 			case let .Alternation(left, right):
-				return recur(left) || recur(right)
+				return recur(left.value) || recur(right.value)
 				
 			case let .Concatenation(first, second):
-				return recur(first) && recur(second)
+				return recur(first.value) && recur(second.value)
 				
 			case .Repetition:
 				return true
 				
 			case let .Reduction(c, _):
-				return recur(c)
+				return recur(c.value)
 				
 			default:
 				return false
