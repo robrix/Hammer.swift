@@ -20,18 +20,18 @@ extension Combinator : Hashable {
 				
 				
 			case let .Alternation(left, right):
-				return "Alternation".hashValue ^ recur(left) ^ recur(right)
+				return "Alternation".hashValue ^ recur(left.value) ^ recur(right.value)
 				
 			case let .Concatenation(first, second):
-				return "Concatenation".hashValue ^ recur(first) ^ recur(second)
+				return "Concatenation".hashValue ^ recur(first.value) ^ recur(second.value)
 				
 				
 			case let .Repetition(language):
-				return "Repetition".hashValue ^ recur(language)
+				return "Repetition".hashValue ^ recur(language.value)
 				
 				
 			case let .Reduction(language, _):
-				return "Reduction".hashValue ^ recur(language)
+				return "Reduction".hashValue ^ recur(language.value)
 			}
 		}
 		return hash(self)

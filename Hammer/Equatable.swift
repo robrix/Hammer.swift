@@ -20,16 +20,16 @@ func == <Alphabet : Alphabet> (left: Combinator<Alphabet>, right: Combinator<Alp
 			return true
 			
 		case let (.Alternation(l1, r1), .Alternation(l2, r2)):
-			return recur(l1, l2) && recur(r1, r2)
+			return recur(l1.value, l2.value) && recur(r1.value, r2.value)
 			
 		case let (.Concatenation(f1, s1), .Concatenation(f2, s2)):
-			return recur(f1, f2) && recur(s1, s2)
+			return recur(f1.value, f2.value) && recur(s1.value, s2.value)
 			
 		case let (.Repetition(x), .Repetition(y)):
-			return recur(x, y)
+			return recur(x.value, y.value)
 			
 		case let (.Reduction(x, _), .Reduction(y, _)):
-			return recur(x, y)
+			return recur(x.value, y.value)
 			
 		default:
 			return false

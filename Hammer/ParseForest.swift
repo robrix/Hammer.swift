@@ -11,17 +11,17 @@ extension Combinator {
 				return x
 				
 			case let .Alternation(x, y):
-				return recur(x) + recur(y)
+				return recur(x.value) + recur(y.value)
 				
 			case let .Concatenation(x, y):
-				return recur(x) * recur(y)
+				return recur(x.value) * recur(y.value)
 				
 			case let .Repetition(x):
 				return .Nil
 				
 			case let .Reduction(x, f):
 				// fixme: this needs to map recur(x) by f
-				return recur(x)
+				return recur(x.value)
 				
 			default:
 				return .Nil

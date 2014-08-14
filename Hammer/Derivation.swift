@@ -10,23 +10,23 @@ extension Combinator {
 		let derive: (Recur, Alphabet) -> Recur = fixpoint(self, { HashablePair($0, $1) }) { recur, parameters in
 			let (combinator, character) = parameters
 			switch combinator.language {
-			case let .Literal(c) where c == character:
-				return Combinator(parsed: ParseTree(leaf: c))
+			case let .Literal(c) where c.value == character:
+				return Combinator(parsed: ParseTree(leaf: c.value))
 				
 			case let .Alternation(x, y):
-				return recur(x, character) | recur(y, character)
+				return recur(x.value, character) | recur(y.value, character)
 				
 			case let .Concatenation(x, y) where x.value.nullable:
-				return recur(x, character) ++ y
-					| Combinator(parsed: x.value.parseForest) ++ recur(y, character)
+				return recur(x.value, character) ++ y.value
+					| Combinator(parsed: x.value.parseForest) ++ recur(y.value, character)
 			case let .Concatenation(x, y):
-				return recur(x, character) ++ y
+				return recur(x.value, character) ++ y.value
 				
 			case let .Repetition(x):
-				return recur(x, character) ++ combinator
+				return recur(x.value, character) ++ combinator
 				
 			case let .Reduction(x, f):
-				return recur(x, character) --> f
+				return recur(x.value, character) --> f
 				
 			default:
 				return Combinator(.Empty)

@@ -14,10 +14,6 @@ class Box<T> {
 	init(_ value: T) {
 		self.value = value
 	}
-	
-	func __conversion() -> T {
-		return value
-	}
 }
 
 
