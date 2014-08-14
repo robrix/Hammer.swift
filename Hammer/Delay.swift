@@ -1,7 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// Takes an unevaluated closure \c value and returns a lazily-evaluating wrapper for it.
-func delay<T>(value: @auto_closure () -> T) -> Delay<T> {
+func delay<T>(value: @autoclosure () -> T) -> Delay<T> {
 	return Delay(value)
 }
 
